@@ -30,8 +30,8 @@ export default function Home() {
             rel="noopener noreferrer"
             className="transition-transform duration-300 hover:scale-105"
           >
-            <img 
-              src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68ed5ad37e872e305c2f8b5e/1ce4b4dff_download-white.png"
+            <img
+              src="/images/download-white.png"
               alt="Download on the App Store"
               className="h-16 md:h-20 w-auto"
             />

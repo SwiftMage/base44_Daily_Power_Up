@@ -70,8 +70,8 @@ export default function StorySection() {
             transition={{ duration: 0.8 }}
           >
             <Card className="aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl sticky top-8">
-              <img 
-                src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68ed5ad37e872e305c2f8b5e/81a380548_family.jpg"
+              <img
+                src="/images/family.jpg"
                 alt="Our family"
                 className="w-full h-full object-cover"
               />
@@ -221,8 +221,8 @@ export default function StorySection() {
           >
             <Card className="p-8 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 border-2 border-blue-100">
               <div className="w-24 h-24 rounded-2xl mb-4 overflow-hidden">
-                <img 
-                  src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68ed5ad37e872e305c2f8b5e/0da62ccae_parent-1.jpg"
+                <img
+                  src="/images/parent-1.jpg"
                   alt="Mom and Occupational Therapist"
                   className="w-full h-full object-cover"
                 />
@@ -242,8 +242,8 @@ export default function StorySection() {
           >
             <Card className="p-8 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 border-2 border-purple-100">
               <div className="w-24 h-24 rounded-2xl mb-4 overflow-hidden">
-                <img 
-                  src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68ed5ad37e872e305c2f8b5e/532757bd4_parent-2.jpg"
+                <img
+                  src="/images/parent-2.jpg"
                   alt="Dad & Designer"
                   className="w-full h-full object-cover"
                 />

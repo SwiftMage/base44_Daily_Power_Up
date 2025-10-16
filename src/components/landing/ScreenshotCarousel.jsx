@@ -8,49 +8,49 @@ export default function ScreenshotCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const screenshots = [
-    { 
-      url: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68ed5ad37e872e305c2f8b5e/94fd3639f_screenshot-1.png",
-      caption: "Choose your daily affirmations" 
+    {
+      url: "/images/screenshot-1.png",
+      caption: "Choose your daily affirmations"
     },
-    { 
-      url: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68ed5ad37e872e305c2f8b5e/e0dd4141b_screenshot-2.png",
-      caption: "Create fun profiles for each child" 
+    {
+      url: "/images/screenshot-2.png",
+      caption: "Create fun profiles for each child"
     },
-    { 
-      url: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68ed5ad37e872e305c2f8b5e/bfecfb211_screenshot-3.png",
-      caption: "Start your daily power-up routine" 
+    {
+      url: "/images/screenshot-3.png",
+      caption: "Start your daily power-up routine"
     },
-    { 
-      url: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68ed5ad37e872e305c2f8b5e/e0aaa7e46_screenshot-4.png",
-      caption: "Interactive voice affirmations" 
+    {
+      url: "/images/screenshot-4.png",
+      caption: "Interactive voice affirmations"
     },
-    { 
-      url: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68ed5ad37e872e305c2f8b5e/06b60f5e8_screenshot-5.png",
-      caption: "Celebrate daily streaks and progress" 
+    {
+      url: "/images/screenshot-5.png",
+      caption: "Celebrate daily streaks and progress"
     },
-    { 
-      url: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68ed5ad37e872e305c2f8b5e/6b11e3281_screenshot-6.png",
-      caption: "Unlock fun rewards and themes" 
+    {
+      url: "/images/screenshot-6.png",
+      caption: "Unlock fun rewards and themes"
     },
-    { 
-      url: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68ed5ad37e872e305c2f8b5e/39db29186_screenshot-7.png",
-      caption: "Practice positive self-talk together" 
+    {
+      url: "/images/screenshot-7.png",
+      caption: "Practice positive self-talk together"
     },
-    { 
-      url: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68ed5ad37e872e305c2f8b5e/d17384d19_screenshot-8.png",
-      caption: "Build your affirmation collection" 
+    {
+      url: "/images/screenshot-8.png",
+      caption: "Build your affirmation collection"
     },
-    { 
-      url: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68ed5ad37e872e305c2f8b5e/179f7ff31_screeenshot-9.png",
-      caption: "Browse by category - anxiety, body image & more" 
+    {
+      url: "/images/screeenshot-9.png",
+      caption: "Browse by category - anxiety, body image & more"
     },
-    { 
-      url: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68ed5ad37e872e305c2f8b5e/ca15beebf_screenshot-10.png",
-      caption: "Track all your affirmations in one place" 
+    {
+      url: "/images/screenshot-10.png",
+      caption: "Track all your affirmations in one place"
     },
-    { 
-      url: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68ed5ad37e872e305c2f8b5e/ab8e6e015_screenshot-11.png",
-      caption: "Beautiful themes your kids will love" 
+    {
+      url: "/images/screenshot-11.png",
+      caption: "Beautiful themes your kids will love"
     }
   ];
 

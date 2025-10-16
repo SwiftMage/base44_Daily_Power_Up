@@ -27,11 +27,11 @@ export default function Hero() {
             transition={{ delay: 0.2, duration: 0.6 }}
             className="mb-8 flex justify-center"
           >
-            <img 
-              src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68ed5ad37e872e305c2f8b5e/e0ef227ad_DailyPowerUplogo.png"
+            <img
+              src="/images/DailyPowerUplogo.png"
               alt="Daily Power Up!"
               className="h-24 w-auto md:h-48 lg:h-56 max-w-full"
-              style={{ 
+              style={{
                 filter: 'drop-shadow(0 10px 25px rgba(0, 0, 0, 0.15)) drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1))'
               }}
             />
@@ -87,8 +87,8 @@ export default function Hero() {
               rel="noopener noreferrer"
               className="transition-transform duration-300 hover:scale-105"
             >
-              <img 
-                src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68ed5ad37e872e305c2f8b5e/3f86769f1_download-white.png"
+              <img
+                src="/images/download-white.png"
                 alt="Download on the App Store"
                 className="h-16 md:h-20 w-auto"
                 style={{ filter: 'drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1))' }}

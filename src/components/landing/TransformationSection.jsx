@@ -22,8 +22,8 @@ export default function TransformationSection() {
           className="text-center"
         >
           <div className="flex items-center justify-center mb-8">
-            <img 
-              src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68ed5ad37e872e305c2f8b5e/b355d8438_brain-muscle-no-bg.png"
+            <img
+              src="/images/brain-muscle-no-bg.png"
               alt="Brain Power"
               className="w-32 h-32 md:w-40 md:h-40"
             />
@@ -34,8 +34,8 @@ export default function TransformationSection() {
           </h2>
 
           <p className="text-xl md:text-2xl text-gray-700 leading-relaxed mb-6">
-            In as little as <span className="font-bold text-blue-600">three minutes a day</span>, <img 
-              src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68ed5ad37e872e305c2f8b5e/e0ef227ad_DailyPowerUplogo.png"
+            In as little as <span className="font-bold text-blue-600">three minutes a day</span>, <img
+              src="/images/DailyPowerUplogo.png"
               alt="Daily Power Up!"
               className="inline-block h-8 md:h-10 w-auto align-middle mx-1"
             /> helps kids reframe anxious thoughts, calm their bodies, and grow emotional confidence — <span className="font-bold text-purple-600">one word at a time</span>.

@@ -32,8 +32,8 @@ export default function FinalCallout() {
           <Card className="p-8 md:p-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-3xl shadow-2xl text-white">
             <div className="text-center mb-12">
               <div className="flex items-center justify-center mb-6 -mt-4">
-                <img 
-                  src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68ed5ad37e872e305c2f8b5e/0ee450156_logo.png"
+                <img
+                  src="/images/logo.png"
                   alt="Daily Power Up Logo"
                   className="w-40 h-40 md:w-52 md:h-52"
                 />
