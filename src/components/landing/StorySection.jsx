@@ -5,7 +5,7 @@ import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Heart, Mail, Check, ChevronDown, ChevronUp } from "lucide-react";
-import { base44 } from "@/api/base44Client";
+import { supabase } from "@/api/supabaseClient";
 
 export default function StorySection() {
   const [email, setEmail] = useState("");
@@ -16,7 +16,7 @@ export default function StorySection() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     if (!email || !email.includes("@")) {
       setError("Please enter a valid email address");
       return;
@@ -26,18 +26,20 @@ export default function StorySection() {
     setError("");
 
     try {
-      await base44.entities.EmailSignup.create({
-        email: email,
-        subscribed_date: new Date().toISOString()
-      });
-      
+      const { error: insertError } = await supabase
+        .from('email_signups')
+        .insert([{ email: email }]);
+
+      if (insertError) throw insertError;
+
       setIsSuccess(true);
       setEmail("");
-      
+
       setTimeout(() => {
         setIsSuccess(false);
       }, 5000);
     } catch (err) {
+      console.error('Error saving email:', err);
       setError("Something went wrong. Please try again.");
     } finally {
       setIsSubmitting(false);
