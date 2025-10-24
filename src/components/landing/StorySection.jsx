@@ -128,7 +128,7 @@ export default function StorySection() {
                 </p>
 
                 <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
-                  So I took my son's biggest struggles and turned them into positive affirmations. Every morning before school, he repeated them back to me. Phrases like:
+                  I began turning my son's hardest moments into simple affirmations:
                 </p>
 
                 <div className="bg-blue-50 p-6 rounded-2xl border-2 border-blue-200">
@@ -141,27 +141,11 @@ export default function StorySection() {
                 </div>
 
                 <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
-                  I taped the list to our kitchen wall and read the phrases aloud as we packed lunches, filled water bottles, and slipped on shoes before heading to the bus stop.
+                  At first, he resisted. (I had to bribe him with a dollar a day to keep him from covering his ears and yelling!) But soon, something shifted. One afternoon he said, "Mom, I just feel so good today. I don't know why. I'm just happy."
                 </p>
 
                 <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
-                  At first, he wanted nothing to do with it (which, honestly, is totally normal). He covered his ears, yelled, and refused to listen. I was desperate, so I offered him a dollar for every day he participated. He agreed, but still wouldn't say the affirmations out loud. I didn't push it. I just asked him to listen and say the words quietly in his head.
-                </p>
-
-                <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
-                  About ten days later, I was doing dishes when out of the blue he walked over and said, "Mom, I just feel so good today. I don't know why. I just think my body is so strong and awesome, and I can't stop thinking about it."
-                </p>
-
-                <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
-                  He was smiling. He was happy.
-                </p>
-
-                <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
-                  I froze, staring at my husband like, what is happening right now? I was thrilled, but also nervous wondering if I could trust it or if a meltdown was just around the corner. When he walked away, I whispered to my husband, "What was that?" He just shook his head, equally stunned.
-                </p>
-
-                <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
-                  Could it really be the self-talk working? I hoped so but didn't want to get ahead of myself. But as the days went on, it became clear that something was shifting. My son got $7 from me before he stopped asking for his daily payment. Instead, he started reminding me, "Mom! Don't forget the self-talk!"
+                  The moment my son said this and I saw that Yes! He truly WAS happy, my heart exploded and melted in all the best ways. I knew then that the self-talk was really working. My son got seven dollars from me before he stopped asking for his daily payment. Instead, he started reminding me, "Mom! Don't forget the self-talk!"
                 </p>
 
                 <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
@@ -169,19 +153,19 @@ export default function StorySection() {
                 </p>
 
                 <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
-                  When I finally stepped out of crisis mode and realized how much this small daily practice had transformed our family, I knew I had to share it with others. That's how Daily Affirmations Power Up! was born.
+                  That's how Daily Power Up! App was born — a tool to help kids (and parents) use self-talk to build courage, confidence, and emotional resilience.
                 </p>
 
                 <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
-                  These days, it's hard to even remember the emotional chaos we used to live in. We smile more than we cry. We laugh more than we rage. We talk things out more than we explode. And we're stronger and more connected as a family than we've ever been.
+                  The power of self-talk changed everything for our family, and it can for yours too.
                 </p>
 
                 <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
-                  This app was created with kids in mind—but honestly, it's for everyone. Because our thoughts shape our world. And with just a few minutes a day, you can help your child (and yourself) build a world filled with courage, confidence, joy, and emotional resilience.
+                  Our thoughts shape our world, and in just a few minutes a day, you can help your child shape their world for the better.
                 </p>
 
                 <p className="text-lg md:text-xl text-gray-700 leading-relaxed font-semibold">
-                  With love from our family to yours,<br />
+                  With love,<br />
                   Kathryn and Evan Jones
                 </p>
 
