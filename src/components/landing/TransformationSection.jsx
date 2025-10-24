@@ -23,23 +23,32 @@ export default function TransformationSection() {
         >
           <div className="flex items-center justify-center mb-8">
             <img
-              src="/images/brain-muscle-no-bg.png"
+              src="/images/brain-muscle-new.png"
               alt="Brain Power"
               className="w-32 h-32 md:w-40 md:h-40"
             />
           </div>
 
           <h2 className="text-4xl md:text-5xl font-bold mb-8 text-gray-900 leading-tight">
-            The power of self-talk changed everything for our family, and it can for yours too.
+            Change your words. Change your world.
           </h2>
 
-          <p className="text-xl md:text-2xl text-gray-700 leading-relaxed mb-6">
-            In as little as <span className="font-bold text-blue-600">three minutes a day</span>, <img
-              src="/images/DailyPowerUplogo.png"
-              alt="Daily Power Up!"
-              className="inline-block h-8 md:h-10 w-auto align-middle mx-1"
-            /> helps kids reframe anxious thoughts, calm their bodies, and grow emotional confidence — <span className="font-bold text-purple-600">one word at a time</span>.
-          </p>
+          <div className="text-xl md:text-2xl text-gray-700 leading-relaxed mb-6">
+            <p className="inline">In as little as three minutes a day, </p>
+            <a
+              href="https://apps.apple.com/us/app/daily-affirmations-power-up/id6744414135"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block transition-transform duration-300 hover:scale-105"
+            >
+              <img
+                src="/images/new-logo-no-bg.png"
+                alt="Daily Affirmations Power Up!"
+                className="inline-block h-8 md:h-10 w-auto mx-1 align-middle cursor-pointer"
+              />
+            </a>
+            <p className="inline"> helps kids (and adults) build the mindset they need to handle life's ups and downs with confidence and joy.</p>
+          </div>
 
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}

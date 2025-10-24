@@ -52,7 +52,7 @@ export default function FinalCallout() {
                 whileInView={{ scale: 1, opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.3, duration: 0.6 }}
-                className="px-1"
+                className="px-1 mb-8"
               >
                 <Button
                   size="lg"
@@ -66,6 +66,29 @@ export default function FinalCallout() {
                     <span className="block sm:inline sm:ml-1">Two-Week Free Trial</span>
                   </span>
                 </Button>
+              </motion.div>
+
+              {/* App Store Badge */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.5, duration: 0.6 }}
+                className="flex justify-center"
+              >
+                <a
+                  href="https://apps.apple.com/us/app/daily-affirmations-power-up/id6744414135"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transition-transform duration-300 hover:scale-105"
+                >
+                  <img
+                    src="/images/download-badge-new.png"
+                    alt="Download on the App Store"
+                    className="h-14 md:h-16 w-auto"
+                    style={{ filter: 'drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1))' }}
+                  />
+                </a>
               </motion.div>
             </div>
           </Card>

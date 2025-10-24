@@ -89,22 +89,14 @@ export default function StorySection() {
           >
             {/* Always visible first paragraph */}
             <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
-              Hi, I'm Kathryn, an Occupational Therapist and mom to a deeply feeling child. For years, our home was filled with what I call emotional tornadoes—big, unpredictable meltdowns that could turn our whole day upside down. When those storms hit, everything stopped. We were all left feeling overwhelmed, sad, and confused long after the meltdown was over.
+              Hi, I'm Kathryn — an Occupational Therapist and mom to a deeply feeling child. For years, our home was full of what I called emotional tornadoes — giant meltdowns that left us drained, sad and confused. Parenting a sensitive child is beautiful and also exhausting. There were many tears and sleepless nights where I kept asking myself, Why can't I figure this out? What am I doing wrong?
             </p>
-            
+
             {!isExpanded && (
               <div className="relative">
                 <div className="relative pb-8">
                   <p className="text-lg md:text-xl text-gray-700 leading-relaxed mt-6">
-                    Parenting a self-directed, highly spirited child is beautiful and exhausting all at once. It can feel like you're constantly riding an emotional rollercoaster. The uncertainty of when the next emotional twist is coming can lead to a parenting journey that is isolating, lonely, and honestly sometimes scary.
-                  </p>
-                  
-                  <p className="text-lg md:text-xl text-gray-700 leading-relaxed mt-6">
-                    Watching your child struggle and not knowing how to help left me questioning everything: Why can't I figure this out? What do they need that I'm not giving them? What's wrong with me? And sometimes, the question I whispered only to myself… is something wrong with them?
-                  </p>
-
-                  <p className="text-lg md:text-xl text-gray-700 leading-relaxed mt-6">
-                    For years I asked for help everywhere I could find it. I talked to teachers, behavior specialists, and therapists. We tried individual and family counseling. I read all the books, listened to all the podcasts...
+                    I searched everywhere for answers — teachers, therapists, doctors, behavior specialists, books and podcasts. I even dove deep into neuroscience and self-regulation courses trying to figure out, what was I missing? Nothing truly helped until one night, at my breaking point, I thought: "Just try self-talk." As an OT, I'd seen self-talk work wonders for kids in my practice but I wasn't sure something that simple could work for my family. Still, I was willing to try anything.
                   </p>
 
                   {/* Fade overlay */}
@@ -132,15 +124,7 @@ export default function StorySection() {
                 className="space-y-6"
               >
                 <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
-                  Parenting a self-directed, highly spirited child is beautiful and exhausting all at once. It can feel like you're constantly riding an emotional rollercoaster. The uncertainty of when the next emotional twist is coming can lead to a parenting journey that is isolating, lonely, and honestly sometimes scary. Watching your child struggle and not knowing how to help left me questioning everything: Why can't I figure this out? What do they need that I'm not giving them? What's wrong with me? And sometimes, the question I whispered only to myself… is something wrong with them?
-                </p>
-
-                <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
-                  For years I asked for help everywhere I could find it. I talked to teachers, behavior specialists, and therapists. We tried individual and family counseling. I read all the books, listened to all the podcasts, talked to all the doctors, and used all my OT training to search for answers. I even dove deep into neuroscience and self-regulation courses trying to understand the brain and figure out, what was I missing?
-                </p>
-
-                <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
-                  Then one night, at the very end of my rope, a simple thought popped into my head: "Just try self-talk." As an OT, I'd seen self-talk work wonders for kids in my practice but I wasn't sure something that simple could work for my family. Still, I was out of ideas and willing to try anything.
+                  I searched everywhere for answers — teachers, therapists, doctors, behavior specialists, books and podcasts. I even dove deep into neuroscience and self-regulation courses trying to figure out, what was I missing? Nothing truly helped until one night, at my breaking point, I thought: "Just try self-talk." As an OT, I'd seen self-talk work wonders for kids in my practice but I wasn't sure something that simple could work for my family. Still, I was willing to try anything.
                 </p>
 
                 <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
