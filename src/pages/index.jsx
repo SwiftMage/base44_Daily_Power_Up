@@ -2,6 +2,7 @@ import Layout from "./Layout.jsx";
 
 import Home from "./Home";
 import Admin from "./Admin";
+import FAQ from "./FAQ";
 
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 
@@ -9,6 +10,7 @@ const PAGES = {
 
     Home: Home,
     Admin: Admin,
+    FAQ: FAQ,
 
 }
 
@@ -40,6 +42,8 @@ function PagesContent() {
                 <Route path="/Home" element={<Home />} />
 
                 <Route path="/Admin" element={<Admin />} />
+
+                <Route path="/FAQ" element={<FAQ />} />
 
             </Routes>
         </Layout>
