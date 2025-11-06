@@ -1,10 +1,7 @@
-
-import React, { useState } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, ChevronUp, HelpCircle } from "lucide-react";
 import { Card } from "@/components/ui/card";
-import { Link } from "react-router-dom";
-import { createPageUrl } from "../utils";
 
 const faqs = [
   {
@@ -150,25 +147,6 @@ export default function FAQ() {
           {faqs.map((faq, index) => (
             <FAQItem key={index} faq={faq} index={index} />
           ))}
-        </div>
-      </section>
-
-      {/* Back to Home */}
-      <section className="py-12 px-6 relative z-10">
-        <div className="max-w-4xl mx-auto text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <Link
-              to={createPageUrl("Home")}
-              className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold text-lg transition-colors duration-200"
-            >
-              ← Back to Home
-            </Link>
-          </motion.div>
         </div>
       </section>
     </div>
