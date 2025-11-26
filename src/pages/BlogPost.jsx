@@ -20,13 +20,13 @@ Psychologists define positive self talk as using encouraging and realistic langu
 
 ### What research says about positive self talk
 
-Positive thinking has been linked with better stress management and emotional health in both kids and adults, according to the Mayo Clinic. It is not about pretending everything is perfect. It is about choosing thoughts that are realistic, hopeful, and supportive.
+Positive thinking has been linked with better stress management and emotional health in both kids and adults, according to the [Mayo Clinic](https://www.mayoclinic.org/healthy-lifestyle/stress-management/in-depth/positive-thinking/art-20043950). It is not about pretending everything is perfect. It is about choosing thoughts that are realistic, hopeful, and supportive.
 
-Research highlighted by the American Psychological Association shows that self affirmations can strengthen well being by helping people reflect on their strengths and values. This same foundation helps kids build resilience when dealing with school pressure, friendship struggles, or new experiences.
+Research highlighted by the [American Psychological Association](https://www.apa.org/news/press/releases/2025/10/self-affirmations-well-being) shows that self affirmations can strengthen well being by helping people reflect on their strengths and values. This same foundation helps kids build resilience when dealing with school pressure, friendship struggles, or new experiences.
 
 ### Better mood, confidence, and resilience
 
-When children practice kinder inner language, it creates space for growth instead of fear. Studies summarized by Medical News Today note that positive self talk can contribute to:
+When children practice kinder inner language, it creates space for growth instead of fear. Studies summarized by [Medical News Today](https://www.medicalnewstoday.com/articles/positive-self-talk) note that positive self talk can contribute to:
 
 - Lower emotional distress
 - Improved confidence in learning new skills
@@ -35,7 +35,7 @@ When children practice kinder inner language, it creates space for growth instea
 
 ### Negative self talk: why kids slip into it easily
 
-Children can be surprisingly hard on themselves. They often jump to conclusions like "I'm bad at this" or "Everyone is better than me." According to Healthdirect, persistent negative self talk can increase stress and chip away at self esteem if it goes unaddressed.
+Children can be surprisingly hard on themselves. They often jump to conclusions like "I'm bad at this" or "Everyone is better than me." According to [Healthdirect](https://www.healthdirect.gov.au/self-talk), persistent negative self talk can increase stress and chip away at self esteem if it goes unaddressed.
 
 These thoughts can also become a loop. If a child believes "I never do this right," they may put in less effort, avoid asking for help, or give up quickly. When the outcome goes poorly, the original belief feels confirmed.
 
@@ -57,7 +57,7 @@ Examples parents can model or teach:
 
 ### 3. Use second-person self talk for tough moments
 
-Research in Nature Scientific Reports suggests that using "you" instead of "I" during stressful tasks can help create emotional distance and calm.
+Research in [Nature Scientific Reports](https://www.nature.com/articles/s41598-017-04047-3) suggests that using "you" instead of "I" during stressful tasks can help create emotional distance and calm.
 
 For instance, instead of "I can't do this," a child might say, "You can take it one step at a time."
 
@@ -113,6 +113,8 @@ function MarkdownRenderer({ content }) {
   let inList = false;
 
   const processInlineMarkdown = (text) => {
+    // Process links [text](url)
+    text = text.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">$1</a>');
     // Process bold
     text = text.replace(/\*\*([^*]+)\*\*/g, '<strong class="text-gray-900 font-semibold">$1</strong>');
     // Process italic
