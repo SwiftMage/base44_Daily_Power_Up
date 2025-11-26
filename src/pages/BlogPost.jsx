@@ -95,17 +95,27 @@ Examples:
 
 ## Where Daily Affirmations Power Up fits in
 
-Positive self talk becomes most powerful when it is consistent. That is where **Daily Affirmations Power Up** is designed to help.
+Positive self talk makes the biggest difference when it becomes a daily habit, especially for kids who are still forming their self-image and internal voice. That is exactly what **Daily Affirmations Power Up** is built for.
 
-The app gives you gentle reminders and curated affirmations so you have the right words ready when you need them. Instead of trying to invent supportive self talk in the middle of a stressful moment, you build a small daily habit that slowly rewires your inner storytelling.
+The app gives children a friendly, fun way to practice simple affirmations each day while parents help guide the setup and encourage the habit. Kids hear messages like "I can try again," "I am capable," and "My feelings matter" in a format that feels playful instead of forced.
 
-For parents, Daily Affirmations Power Up can also become a tool you use with your kids. When they see you modeling kind inner talk about yourself, they learn to treat their own thoughts in a gentler way too.
+And because parents participate in the beginning, you can shape the experience so the affirmations match your child's age, personality, and emotional needs.
 
-Over time, you are not just repeating nice phrases. You are teaching your brain and your family that the way you speak to yourself matters.
+### A shared practice that strengthens both sides of the relationship
+
+When you help your child practice positive self talk, you're giving them a tool they will carry for years. Kids learn how to treat themselves by listening to how trusted adults speak to them and how they navigate challenges.
+
+Daily Affirmations Power Up becomes a small daily touchpoint where:
+
+- Kids hear messages that build confidence and resilience
+- Parents reinforce emotional skills at home
+- You both create a consistent language of support
+
+Over time, those short prompts help kids internalize a kinder, more encouraging inner voice. It is not about memorizing phrases. It is about growing up with a foundation of self respect and emotional strength.
     `,
     sources: [
       { name: "Mayo Clinic. Positive thinking and stress management.", url: "https://www.mayoclinic.org/healthy-lifestyle/stress-management/in-depth/positive-thinking/art-20043950" },
-      { name: "American Psychological Association. Self affirmation and well being.", url: "https://www.apa.org/news/press/releases/2010/06/self-affirmation" },
+      { name: "American Psychological Association. Self affirmations and well being.", url: "https://www.apa.org/news/press/releases/2025/10/self-affirmations-well-being" },
       { name: "Medical News Today. Overview of positive self talk.", url: "https://www.medicalnewstoday.com/articles/positive-self-talk" },
       { name: "Healthdirect Australia. Self talk and mental health.", url: "https://www.healthdirect.gov.au/self-talk" },
       { name: "Creswell et al. Neural mechanisms of self affirmation.", url: "https://pubmed.ncbi.nlm.nih.gov/26854981/" },
