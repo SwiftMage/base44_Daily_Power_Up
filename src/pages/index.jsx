@@ -3,6 +3,8 @@ import Layout from "./Layout.jsx";
 import Home from "./Home";
 import Admin from "./Admin";
 import FAQ from "./FAQ";
+import Blog from "./Blog";
+import BlogPost from "./BlogPost";
 
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 
@@ -11,6 +13,7 @@ const PAGES = {
     Home: Home,
     Admin: Admin,
     FAQ: FAQ,
+    Blog: Blog,
 
 }
 
@@ -44,6 +47,10 @@ function PagesContent() {
                 <Route path="/Admin" element={<Admin />} />
 
                 <Route path="/FAQ" element={<FAQ />} />
+
+                <Route path="/Blog" element={<Blog />} />
+
+                <Route path="/blog/:slug" element={<BlogPost />} />
 
             </Routes>
         </Layout>

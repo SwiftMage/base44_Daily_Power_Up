@@ -20,6 +20,7 @@ export default function Footer() {
             <ul className="space-y-2 text-sm">
               <li><a href="#" className="hover:text-white transition-colors duration-200">About</a></li>
               <li><Link to={createPageUrl("FAQ")} className="hover:text-white transition-colors duration-200">FAQ</Link></li>
+              <li><Link to={createPageUrl("Blog")} className="hover:text-white transition-colors duration-200">Blog</Link></li>
               <li><a href="#" className="hover:text-white transition-colors duration-200">Privacy Policy</a></li>
               <li><a href="#" className="hover:text-white transition-colors duration-200">Terms of Service</a></li>
               <li><a href="https://apps.apple.com/us/app/daily-affirmations-power-up/id6744414135" target="_blank" className="hover:text-white transition-colors duration-200">App Store</a></li>
