@@ -9,7 +9,7 @@ const blogPosts = {
     readTime: "7 min read",
     audience: "For parents, busy humans, and anyone learning to be kinder to themselves",
     tags: ["Mindset", "Science backed habits"],
-    heroImage: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80",
+    heroImage: "https://images.unsplash.com/photo-1708119651120-f48a57a0437d?q=80&w=776&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     badges: ["Improved mood and resilience", "Backed by psychological research", "Built into Daily Affirmations Power Up"],
     content: `
 ## The inner voice that quietly shapes your day
@@ -404,7 +404,7 @@ export default function BlogPost() {
                 <span className="text-xs uppercase tracking-widest text-gray-400">Visual snapshot</span>
                 <div className="mt-4 rounded-xl overflow-hidden border border-gray-600">
                   <img
-                    src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80"
+                    src="https://images.unsplash.com/photo-1546800237-ddc1372bc253?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                     alt="Sticky notes with positive words"
                     className="w-full h-40 object-cover"
                   />
