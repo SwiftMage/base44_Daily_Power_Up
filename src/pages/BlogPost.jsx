@@ -330,7 +330,7 @@ Small changes, consistently applied, lead to significant transformations. And be
     tags: ["Confidence", "Self-Talk"],
     heroImage: "https://images.pexels.com/photos/8088100/pexels-photo-8088100.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
     badges: ["Build self-esteem", "Foster resilience", "Create lasting habits"],
-    content: \`
+    content: `
 ## What Is Positive Self-Talk?
 
 When we think about building confidence in our kids, the conversation usually starts on the outside—praise, encouragement, celebrations of effort. But there's a more powerful (and often less visible) tool at play: the way our children talk to themselves in the privacy of their own minds. At Daily Power Up!, we've seen firsthand how intentionally fostering positive self-talk can change not just a child's mood, but the very trajectory of how they see themselves, approach challenges, and believe in their own abilities for the rest of their lives.
@@ -446,7 +446,7 @@ Yes! The kid-friendly visuals, voiceovers, and navigation mean even pre-readers 
 At the heart of raising confident kids is one simple truth: what they say to themselves becomes what they believe about the world—and their unique place in it. With a bit of intention, positive rituals, and daily practice, we can help our children build self-talk habits that last a lifetime.
 
 Ready to help your child power up their confidence with the support of hundreds of other families? You can explore the Daily Affirmations Power Up app for iOS and see how fun, friendly positive self-talk fits right into your family's real life. [Try Daily Power Up today](https://apps.apple.com/app/id6744414135) and let's grow resilient, joyful kids together—one small affirmation at a time.
-    \`,
+    `,
     sources: [
       { name: "Daily Power Up! App on the App Store", url: "https://apps.apple.com/app/id6744414135" }
     ],
