@@ -284,7 +284,9 @@ export default function BlogPost() {
 
               <div className="flex flex-wrap items-center gap-4 mb-6">
                 <a
-                  href="https://www.dailyaffirmationspowerup.com"
+                  href="https://apps.apple.com/us/app/daily-affirmations-power-up/id6744414135"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="px-5 py-2.5 rounded-full bg-gradient-to-r from-green-500 to-green-600 text-slate-900 font-medium text-sm flex items-center gap-2 hover:shadow-lg hover:shadow-green-500/30 transition-all"
                 >
                   Start your affirmation habit <span>▶</span>
