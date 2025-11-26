@@ -361,7 +361,9 @@ export default function BlogPost() {
                   </div>
                   <div className="flex flex-wrap gap-3">
                     <a
-                      href="https://www.dailyaffirmationspowerup.com"
+                      href="https://apps.apple.com/us/app/daily-affirmations-power-up/id6744414135"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="px-4 py-2 rounded-full bg-gradient-to-r from-green-500 to-green-600 text-white text-sm font-medium flex items-center gap-2"
                     >
                       Try Daily Affirmations Power Up <span>↗</span>
