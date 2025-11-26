@@ -5,6 +5,15 @@ import { BookOpen, ArrowRight, Clock } from "lucide-react";
 
 const blogPosts = [
   {
+    slug: "building-lasting-confidence-power-of-positive-self-talk",
+    title: "Building Lasting Confidence: The Power of Positive Self-Talk for Kids",
+    excerpt: "When we think about building confidence in our kids, the conversation usually starts on the outside. But there's a more powerful tool at play: the way our children talk to themselves in the privacy of their own minds.",
+    readTime: "10 min read",
+    tags: ["Confidence", "Self-Talk"],
+    image: "https://images.pexels.com/photos/8088100/pexels-photo-8088100.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    date: "2025"
+  },
+  {
     slug: "morning-routine-calm-confident-kids",
     title: "The Ultimate Morning Routine for Calm, Confident Kids",
     excerpt: "Mornings with kids rarely look like the calm, smiling family photos on social media. Here's a detailed, parent-tested approach to creating a morning routine that helps your child start the day calm and confident.",
