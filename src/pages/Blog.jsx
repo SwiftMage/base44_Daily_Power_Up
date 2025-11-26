@@ -5,6 +5,15 @@ import { BookOpen, ArrowRight, Clock } from "lucide-react";
 
 const blogPosts = [
   {
+    slug: "morning-routine-calm-confident-kids",
+    title: "The Ultimate Morning Routine for Calm, Confident Kids",
+    excerpt: "Mornings with kids rarely look like the calm, smiling family photos on social media. Here's a detailed, parent-tested approach to creating a morning routine that helps your child start the day calm and confident.",
+    readTime: "8 min read",
+    tags: ["Morning Routine", "Parenting Tips"],
+    image: "https://images.pexels.com/photos/7220534/pexels-photo-7220534.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    date: "2025"
+  },
+  {
     slug: "why-positive-self-talk-matters",
     title: "Why Positive Self Talk Matters More Than You Think",
     excerpt: "Your inner voice is with you from the moment you wake up until your head hits the pillow. When that voice is kind and hopeful it can quietly reshape how you handle stress, challenges, and everyday life.",
