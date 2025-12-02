@@ -1,8 +1,8 @@
 # Robots.txt for Daily Power Up
-# https://dailypowerup.app
+# https://dailyaffirmationspowerup.com
 
 User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://dailypowerup.app/sitemap.xml
+Sitemap: https://dailyaffirmationspowerup.com/sitemap.xml

@@ -17,8 +17,8 @@ const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "Daily Power Up",
-  "url": "https://dailypowerup.app",
-  "logo": "https://dailypowerup.app/images/screenshot-1.png",
+  "url": "https://dailyaffirmationspowerup.com",
+  "logo": "https://dailyaffirmationspowerup.com/images/screenshot-1.png",
   "sameAs": [
     "https://twitter.com/DailyPowerUpApp"
   ],

@@ -1,7 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 
 const SITE_NAME = 'Daily Power Up';
-const BASE_URL = 'https://dailypowerup.app';
+const BASE_URL = 'https://dailyaffirmationspowerup.com';
 const DEFAULT_IMAGE = `${BASE_URL}/images/screenshot-1.png`;
 const TWITTER_HANDLE = '@DailyPowerUpApp';
 

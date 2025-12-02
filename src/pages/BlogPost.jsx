@@ -861,13 +861,13 @@ export default function BlogPost() {
       "name": "Daily Power Up",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://dailypowerup.app/images/screenshot-1.png"
+        "url": "https://dailyaffirmationspowerup.com/images/screenshot-1.png"
       }
     },
     "datePublished": "2025-01-01",
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": `https://dailypowerup.app/blog/${slug}`
+      "@id": `https://dailyaffirmationspowerup.com/blog/${slug}`
     }
   };
 
