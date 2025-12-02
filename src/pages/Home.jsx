@@ -24,7 +24,7 @@ const organizationSchema = {
   ],
   "contactPoint": {
     "@type": "ContactPoint",
-    "email": "hello@dailypowerup.app",
+    "email": "hello@dailyaffirmationspowerup.com",
     "contactType": "customer service"
   }
 };
