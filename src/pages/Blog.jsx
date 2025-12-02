@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Card } from "@/components/ui/card";
 import { BookOpen, ArrowRight, Clock } from "lucide-react";
+import SEO from "../components/SEO";
 
 const blogPosts = [
   {
@@ -45,6 +46,11 @@ const blogPosts = [
 export default function Blog() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 via-purple-50 to-pink-50 relative overflow-hidden">
+      <SEO
+        title="Blog - Parenting Tips & Positive Thinking for Kids"
+        description="Expert insights on teaching kids positive self-talk, building confidence, and creating healthy morning routines. Science-backed tips for parents."
+        url="/Blog"
+      />
       {/* Space background pattern */}
       <div
         className="fixed inset-0 bg-cover bg-center bg-repeat opacity-5 pointer-events-none"

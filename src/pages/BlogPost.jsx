@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Link, useParams, Navigate } from "react-router-dom";
 import { ArrowLeft, Clock, ExternalLink } from "lucide-react";
+import SEO from "../components/SEO";
 
 const blogPosts = {
   "why-positive-self-talk-matters": {
@@ -845,8 +846,46 @@ export default function BlogPost() {
     return <Navigate to="/blog" replace />;
   }
 
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": post.title,
+    "description": post.subtitle,
+    "image": post.heroImage,
+    "author": {
+      "@type": "Organization",
+      "name": "Daily Power Up"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Daily Power Up",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://dailypowerup.app/images/screenshot-1.png"
+      }
+    },
+    "datePublished": "2025-01-01",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `https://dailypowerup.app/blog/${slug}`
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-900 via-slate-900 to-slate-950 text-gray-100">
+      <SEO
+        title={post.title}
+        description={post.subtitle}
+        image={post.heroImage}
+        url={`/blog/${slug}`}
+        type="article"
+        article={{
+          publishedTime: "2025-01-01",
+          author: "Daily Power Up",
+          tags: post.tags
+        }}
+        structuredData={articleSchema}
+      />
       {/* Navigation */}
       <header className="py-5 px-6">
         <nav className="max-w-5xl mx-auto flex items-center justify-between">
