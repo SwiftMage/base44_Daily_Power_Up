@@ -102,38 +102,20 @@ function FAQItem({ faq, index }) {
   );
 }
 
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "How many affirmations should I choose?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "There's no right number! Choose as many or as few as you'd like. The key to success is just listening every day. Daily practice will rewire the brain for happiness, courage and calm!"
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How long does it take to see results?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Some families notice shifts after just a few days—a calmer morning, a lighter mood, a little more confidence. Others may see changes after a few weeks of consistent practice. Consistency gets faster results."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Do my kids need to say the affirmations out loud?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Nope! Hearing or thinking them works too. But saying them out loud adds extra power. Even if your kids don't join in, model it yourself."
-      }
-    }
-  ]
-};
-
 export default function FAQ() {
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer.replace(/\n\n/g, ' ').replace(/(\(see FAQ #\d+\))/g, '').trim()
+      }
+    }))
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 via-purple-50 to-pink-50 relative overflow-hidden">
       <SEO

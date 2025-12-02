@@ -75,7 +75,7 @@ Kid-friendly examples:
 
 ## Where Daily Affirmations Power Up fits in
 
-Daily affirmations are most powerful when they become a consistent habit, especially for kids who are still forming their self identity. That is exactly what **Daily Affirmations Power Up** is designed to support.
+Daily affirmations are most powerful when they become a consistent habit, especially for kids who are still forming their self identity. That is exactly what our **[Daily Affirmations Power Up app](/)** is designed to support.
 
 The app gives children a friendly, simple way to practice positive self talk every day. Parents play a small but important role in the beginning by setting things up, choosing affirmations, and helping guide the habit.
 
@@ -286,7 +286,7 @@ Over time, these small morning investments compound. The child who hears "I can 
 
 ## Where Daily Affirmations Power Up fits in
 
-Building a consistent affirmation habit is easier with the right tools. **Daily Affirmations Power Up** was designed specifically to help families incorporate meaningful, age-appropriate affirmations into their daily routines.
+Building a consistent affirmation habit is easier with the right tools. The **[Daily Affirmations Power Up app](/)** was designed specifically to help families incorporate meaningful, age-appropriate affirmations into their daily routines.
 
 The app offers:
 
@@ -543,7 +543,7 @@ We've learned that the most effective affirmations aren't just positive—they'r
 
 ## How We Designed Daily Power Up! for Calming Bedtime Routines
 
-When we created the Daily Affirmations Power Up app, we listened to real parents' stories. We designed every feature around what actually works for modern families and their unique challenges at night:
+When we created the **[Daily Affirmations Power Up app](/)**, we listened to real parents' stories. We designed every feature around what actually works for modern families and their unique challenges at night:
 
 - **Kid-friendly, calming affirmations** that support confidence and relaxation, written in language that is easy to repeat.
 
@@ -725,7 +725,7 @@ The same is true for your children. The affirmations they practice, the beliefs 
 
 ## Where Daily Affirmations Power Up Fits In
 
-Understanding neuroplasticity is one thing. Applying it consistently—especially with kids—is another challenge entirely.
+Understanding neuroplasticity is one thing. Applying it consistently—especially with kids—is another challenge entirely. That's exactly why we created the **[Daily Affirmations Power Up app](/)**.
 
 That's exactly why we created **Daily Affirmations Power Up**. The app makes it easy to:
 
@@ -865,10 +865,12 @@ export default function BlogPost() {
       }
     },
     "datePublished": "2025-01-01",
+    "dateModified": "2025-01-01",
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": `https://dailyaffirmationspowerup.com/blog/${slug}`
-    }
+    },
+    "keywords": post.tags.join(", ")
   };
 
   return (
