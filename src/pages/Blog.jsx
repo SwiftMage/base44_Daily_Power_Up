@@ -5,6 +5,15 @@ import { BookOpen, ArrowRight, Clock } from "lucide-react";
 
 const blogPosts = [
   {
+    slug: "rewire-your-brain-neuroplasticity-guide",
+    title: "How to Rewire Your Brain: A Parent's Guide to Neuroplasticity",
+    excerpt: "Your brain is not a fixed machine—it's a living ecosystem. Every thought, emotion, and habit sends signals that carve new neural pathways. Here's how to use this science to help yourself and your children build better mental habits.",
+    readTime: "9 min read",
+    tags: ["Neuroplasticity", "Mindset"],
+    image: "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    date: "2025"
+  },
+  {
     slug: "building-lasting-confidence-power-of-positive-self-talk",
     title: "Building Lasting Confidence: The Power of Positive Self-Talk for Kids",
     excerpt: "When we think about building confidence in our kids, the conversation usually starts on the outside. But there's a more powerful tool at play: the way our children talk to themselves in the privacy of their own minds.",
