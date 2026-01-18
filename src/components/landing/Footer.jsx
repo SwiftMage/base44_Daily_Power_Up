@@ -31,8 +31,8 @@ export default function Footer() {
             <h4 className="text-white font-semibold mb-4">Contact</h4>
             <div className="flex items-center gap-2 text-sm mb-3">
               <Mail className="w-4 h-4" />
-              <a href="mailto:hello@dailyaffirmationspowerup.com" className="hover:text-white transition-colors duration-200">
-                hello@dailyaffirmationspowerup.com
+              <a href="mailto:dailyaffirmationspowerup@gmail.com" className="hover:text-white transition-colors duration-200">
+                dailyaffirmationspowerup@gmail.com
               </a>
             </div>
           </div>
