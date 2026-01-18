@@ -28,7 +28,7 @@ export default function Hero() {
               className="text-center md:text-left"
             >
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
-                Give Kids the Tools to Handle Big Feelings
+                Daily Power Up! The app that can turn daily meltdowns and fights into moments of calm, confidence, and connection.
               </h1>
               <p className="text-xl md:text-2xl text-gray-700 leading-relaxed mb-8">
                 With Daily Power Up's guided affirmations, kids learn how to talk to themselves with confidence, kindness, and courage.
