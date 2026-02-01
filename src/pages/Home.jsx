@@ -1,13 +1,12 @@
-import React, { useEffect, useRef } from "react";
-import { motion, useInView } from "framer-motion";
-import { Heart, Sparkles, Download, Apple } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
+import React from "react";
 import Hero from "../components/landing/Hero";
+import SocialProofBar from "../components/landing/SocialProofBar";
 import BeforeSection from "../components/landing/BeforeSection";
 import TransformationSection from "../components/landing/TransformationSection";
 import ScreenshotCarousel from "../components/landing/ScreenshotCarousel";
+import TestimonialsSection from "../components/landing/TestimonialsSection";
 import StorySection from "../components/landing/StorySection";
+import FAQSection from "../components/landing/FAQSection";
 import FinalCallout from "../components/landing/FinalCallout";
 import ContactSection from "../components/landing/ContactSection";
 import Footer from "../components/landing/Footer";
@@ -24,7 +23,7 @@ const organizationSchema = {
   ],
   "contactPoint": {
     "@type": "ContactPoint",
-    "email": "hello@dailyaffirmationspowerup.com",
+    "email": "dailyaffirmationspowerup@gmail.com",
     "contactType": "customer service"
   }
 };
@@ -50,7 +49,7 @@ const appSchema = {
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white pt-16">
       <SEO
         title="Daily Power Up - Positive Affirmations App for Kids"
         description="Help your child build confidence and a positive mindset with Daily Power Up. Daily affirmations designed to boost self-esteem and reduce anxiety in children."
@@ -58,10 +57,13 @@ export default function Home() {
         structuredData={[organizationSchema, appSchema]}
       />
       <Hero />
+      <SocialProofBar />
       <BeforeSection />
       <TransformationSection />
       <ScreenshotCarousel />
+      <TestimonialsSection />
       <StorySection />
+      <FAQSection />
       <FinalCallout />
       <ContactSection />
       <Footer />
