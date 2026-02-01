@@ -1,14 +1,12 @@
 import React from "react";
 import Hero from "../components/landing/Hero";
 import SocialProofBar from "../components/landing/SocialProofBar";
-import BeforeSection from "../components/landing/BeforeSection";
-import TransformationSection from "../components/landing/TransformationSection";
-import ScreenshotCarousel from "../components/landing/ScreenshotCarousel";
+import EGuideSection from "../components/landing/EGuideSection";
+import ProblemChecklistSection from "../components/landing/ProblemChecklistSection";
 import TestimonialsSection from "../components/landing/TestimonialsSection";
 import StorySection from "../components/landing/StorySection";
-import FAQSection from "../components/landing/FAQSection";
-import FinalCallout from "../components/landing/FinalCallout";
-import ContactSection from "../components/landing/ContactSection";
+import CommunitySection from "../components/landing/CommunitySection";
+import ScreenshotCarousel from "../components/landing/ScreenshotCarousel";
 import Footer from "../components/landing/Footer";
 import SEO from "../components/SEO";
 
@@ -58,14 +56,12 @@ export default function Home() {
       />
       <Hero />
       <SocialProofBar />
-      <BeforeSection />
-      <TransformationSection />
-      <ScreenshotCarousel />
+      <EGuideSection />
+      <ProblemChecklistSection />
       <TestimonialsSection />
       <StorySection />
-      <FAQSection />
-      <FinalCallout />
-      <ContactSection />
+      <CommunitySection />
+      <ScreenshotCarousel />
       <Footer />
     </div>
   );
