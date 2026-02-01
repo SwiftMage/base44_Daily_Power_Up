@@ -52,10 +52,13 @@ export default function EGuideSection() {
             <BookOpen className="w-8 h-8 text-white" />
           </div>
 
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Free E-Guide: Self-Talk for Kids
+          <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-2 tracking-tight drop-shadow-lg">
+            Free E-Guide
           </h2>
-          <p className="text-lg md:text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+          <p className="text-xl md:text-2xl font-semibold text-yellow-300 mb-6">
+            Self-Talk for Kids
+          </p>
+          <p className="text-base md:text-lg text-blue-100 mb-8 max-w-2xl mx-auto">
             See results fast and avoid the biggest mistakes. Download our free guide to learn how to use the power of self-talk to increase joy, reduce anxiety, and build lasting confidence.
           </p>
 
