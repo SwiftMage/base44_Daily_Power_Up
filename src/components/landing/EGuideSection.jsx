@@ -23,7 +23,7 @@ export default function EGuideSection() {
     try {
       const { error: dbError } = await supabase
         .from("email_signups")
-        .insert([{ email: email, source: "eguide" }]);
+        .insert([{ email: email }]);
 
       if (dbError) throw dbError;
       setStatus("success");

@@ -21,9 +21,11 @@ export default function HowItWorksSection() {
     setError("");
 
     try {
-      await supabase
+      const { error: dbError } = await supabase
         .from("email_signups")
-        .insert([{ email: email, source: "eguide" }]);
+        .insert([{ email: email }]);
+
+      if (dbError) console.error("Error saving email:", dbError);
     } catch (err) {
       console.error("Error saving email:", err);
     }
