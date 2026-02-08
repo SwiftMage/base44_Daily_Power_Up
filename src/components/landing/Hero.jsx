@@ -60,32 +60,32 @@ export default function Hero() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-600 via-pink-500 to-orange-400">
-      <nav className="flex justify-between items-center px-8 py-1">
-        <div className="flex items-center gap-3">
-          <img src="/images/logo.png" alt="Daily Power Up!" className="h-40 w-auto -mb-20 mt-2" />
-          <span className="font-extrabold text-yellow-300 text-4xl mt-8 drop-shadow-lg">Self-Talk for Kids</span>
+    <div className="min-h-screen bg-gradient-to-br from-purple-600 via-pink-500 to-orange-400 overflow-x-hidden">
+      <nav className="flex flex-col md:flex-row md:justify-between md:items-center px-4 md:px-8 py-2">
+        <div className="flex items-center gap-2 md:gap-3">
+          <img src="/images/logo.png" alt="Daily Power Up!" className="h-20 md:h-40 w-auto md:-mb-20 md:mt-2" />
+          <span className="font-extrabold text-yellow-300 text-xl md:text-4xl md:mt-8 drop-shadow-lg">Self-Talk for Kids</span>
         </div>
-        <div className="flex items-center gap-8">
-          <a href="/Blog" className="text-white font-medium hover:text-white/80 transition">Blog</a>
-          <a href="/FAQ" className="text-white font-medium hover:text-white/80 transition">FAQ</a>
-          <a href="#eguide" className="text-white font-medium hover:text-white/80 transition">E-Guide</a>
-          <a href="#faq" className="text-white font-medium hover:text-white/80 transition">Community</a>
+        <div className="flex items-center gap-3 md:gap-8 flex-wrap mt-1 md:mt-0">
+          <a href="/Blog" className="text-white text-sm md:text-base font-medium hover:text-white/80 transition">Blog</a>
+          <a href="/FAQ" className="text-white text-sm md:text-base font-medium hover:text-white/80 transition">FAQ</a>
+          <a href="#eguide" className="text-white text-sm md:text-base font-medium hover:text-white/80 transition">E-Guide</a>
+          <a href="#faq" className="text-white text-sm md:text-base font-medium hover:text-white/80 transition">Community</a>
           <a href="https://apps.apple.com/us/app/daily-affirmations-power-up/id6744414135" target="_blank" rel="noopener noreferrer">
-            <Button className="bg-white text-purple-600 hover:bg-gray-100 rounded-full px-8 py-2 text-lg font-bold">Get App</Button>
+            <Button className="bg-white text-purple-600 hover:bg-gray-100 rounded-full px-5 md:px-8 py-1.5 md:py-2 text-sm md:text-lg font-bold">Get App</Button>
           </a>
         </div>
       </nav>
-      <div className="max-w-none mx-auto px-8 py-20 grid md:grid-cols-[1.4fr_1fr] gap-8 items-start">
+      <div className="max-w-none mx-auto px-4 md:px-8 py-10 md:py-20 grid md:grid-cols-[1.4fr_1fr] gap-8 items-start">
         <div>
-          <h1 className="text-6xl md:text-7xl font-bold text-white mb-8 leading-tight">
+          <h1 className="text-4xl md:text-7xl font-bold text-white mb-6 md:mb-8 leading-tight">
             We help kids feel awesome about themselves
           </h1>
           <div className="space-y-3 mb-10">
             {benefits.map((b, i) => (
-              <div key={i} className={`flex items-center gap-3 ${colorfulBoxes[i]} backdrop-blur-sm rounded-xl p-4 w-3/4`}>
-                <Check className="w-6 h-6 text-white flex-shrink-0" />
-                <span className="text-white text-xl font-bold whitespace-nowrap">{b}</span>
+              <div key={i} className={`flex items-center gap-3 ${colorfulBoxes[i]} backdrop-blur-sm rounded-xl p-3 md:p-4 w-full md:w-3/4`}>
+                <Check className="w-5 md:w-6 h-5 md:h-6 text-white flex-shrink-0" />
+                <span className="text-white text-base md:text-xl font-bold">{b}</span>
               </div>
             ))}
           </div>
@@ -102,9 +102,11 @@ export default function Hero() {
             "This app completely transformed our mornings"
           </p>
           <img src="/images/hero-child.png" alt="Happy child" className="w-full max-w-md rounded-3xl border-8 border-white/40 shadow-2xl mb-6" />
-          <Button className="bg-white text-purple-600 hover:bg-gray-100 px-10 py-7 text-xl rounded-xl font-bold">
-            Start Free Trial
-          </Button>
+          <a href="https://apps.apple.com/us/app/daily-affirmations-power-up/id6744414135" target="_blank" rel="noopener noreferrer">
+            <Button className="bg-white text-purple-600 hover:bg-gray-100 px-10 py-7 text-xl rounded-xl font-bold">
+              Start Free Trial
+            </Button>
+          </a>
         </div>
       </div>
     </div>
