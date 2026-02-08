@@ -1,12 +1,12 @@
 import React from "react";
 import Hero from "../components/landing/Hero";
-import SocialProofBar from "../components/landing/SocialProofBar";
-import EGuideSection from "../components/landing/EGuideSection";
+import HowItWorksSection from "../components/landing/HowItWorksSection";
 import ProblemChecklistSection from "../components/landing/ProblemChecklistSection";
 import TestimonialsSection from "../components/landing/TestimonialsSection";
 import StorySection from "../components/landing/StorySection";
 import CommunitySection from "../components/landing/CommunitySection";
 import ScreenshotCarousel from "../components/landing/ScreenshotCarousel";
+import WhatItDoesSection from "../components/landing/WhatItDoesSection";
 import Footer from "../components/landing/Footer";
 import SEO from "../components/SEO";
 
@@ -47,7 +47,7 @@ const appSchema = {
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-white pt-16">
+    <div className="min-h-screen bg-white">
       <SEO
         title="Daily Power Up - Positive Affirmations App for Kids"
         description="Help your child build confidence and a positive mindset with Daily Power Up. Daily affirmations designed to boost self-esteem and reduce anxiety in children."
@@ -55,13 +55,17 @@ export default function Home() {
         structuredData={[organizationSchema, appSchema]}
       />
       <Hero />
-      <SocialProofBar />
-      <EGuideSection />
-      <ProblemChecklistSection />
-      <TestimonialsSection />
-      <StorySection />
-      <CommunitySection />
+      <HowItWorksSection />
       <ScreenshotCarousel />
+      <div id="story">
+        <StorySection />
+      </div>
+      <div id="reviews">
+        <TestimonialsSection />
+      </div>
+      <div id="faq">
+        <CommunitySection />
+      </div>
       <Footer />
     </div>
   );

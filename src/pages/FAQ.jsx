@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
 import { ChevronDown, ChevronUp, HelpCircle } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import SEO from "../components/SEO";
@@ -132,8 +133,15 @@ export default function FAQ() {
         }}
       />
 
+      {/* Logo */}
+      <div className="relative z-10 px-6 pt-4">
+        <Link to="/">
+          <img src="/images/logo.png" alt="Daily Power Up!" className="h-24 w-auto" />
+        </Link>
+      </div>
+
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100 pt-16 pb-12">
+      <section className="relative overflow-hidden bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100 pt-8 pb-12">
         <div className="absolute top-10 left-10 w-72 h-72 bg-yellow-300 rounded-full opacity-30 blur-3xl animate-pulse" />
         <div className="absolute bottom-10 right-10 w-96 h-96 bg-blue-300 rounded-full opacity-30 blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
 
@@ -143,14 +151,11 @@ export default function FAQ() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full mb-6 shadow-xl">
-              <HelpCircle className="w-10 h-10 text-white" />
-            </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-gray-900">
               Frequently Asked Questions
             </h1>
             <p className="text-xl md:text-2xl text-gray-700 leading-relaxed">
-              Everything you need to know about Daily Affirmations Power Up!
+              Everything you need to know about Daily Power Up!
             </p>
           </motion.div>
         </div>

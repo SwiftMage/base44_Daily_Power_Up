@@ -2,7 +2,6 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Heart, BookOpen, HelpCircle, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
-import { createPageUrl } from "../../utils";
 
 export default function CommunitySection() {
   return (
@@ -38,7 +37,7 @@ export default function CommunitySection() {
             transition={{ delay: 0.1, duration: 0.5 }}
           >
             <Link
-              to={createPageUrl("FAQ")}
+              to="/FAQ"
               className="block bg-white rounded-2xl p-6 shadow-md border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center h-full"
             >
               <HelpCircle className="w-10 h-10 text-blue-500 mx-auto mb-4" />
@@ -56,7 +55,7 @@ export default function CommunitySection() {
             transition={{ delay: 0.2, duration: 0.5 }}
           >
             <Link
-              to={createPageUrl("Blog")}
+              to="/Blog"
               className="block bg-white rounded-2xl p-6 shadow-md border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center h-full"
             >
               <BookOpen className="w-10 h-10 text-purple-500 mx-auto mb-4" />

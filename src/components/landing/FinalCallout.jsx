@@ -61,7 +61,7 @@ export default function FinalCallout() {
                 >
                   <Sparkles className="hidden md:block w-6 h-6 mr-3 flex-shrink-0" />
                   <span className="leading-tight">
-                    <span className="block sm:inline">Try Daily Affirmations Power Up!</span>
+                    <span className="block sm:inline">Try Daily Power Up!</span>
                     <span className="hidden sm:inline sm:ml-1">—</span>
                     <span className="block sm:inline sm:ml-1">Two-Week Free Trial</span>
                   </span>

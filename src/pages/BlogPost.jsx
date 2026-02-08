@@ -11,7 +11,7 @@ const blogPosts = {
     audience: "For parents, busy humans, and anyone learning to be kinder to themselves",
     tags: ["Mindset", "Science backed habits"],
     heroImage: "https://images.unsplash.com/photo-1708119651120-f48a57a0437d?q=80&w=776&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    badges: ["Improved mood and resilience", "Backed by psychological research", "Built into Daily Affirmations Power Up"],
+    badges: ["Improved mood and resilience", "Backed by psychological research", "Built into Daily Power Up!"],
     content: `
 ## The inner voice that quietly shapes children's days
 
@@ -73,9 +73,9 @@ Kid-friendly examples:
 - *"My feelings matter."*
 - *"I am brave enough to try."*
 
-## Where Daily Affirmations Power Up fits in
+## Where Daily Power Up! fits in
 
-Daily affirmations are most powerful when they become a consistent habit, especially for kids who are still forming their self identity. That is exactly what our **[Daily Affirmations Power Up app](/)** is designed to support.
+Daily affirmations are most powerful when they become a consistent habit, especially for kids who are still forming their self identity. That is exactly what our **[Daily Power Up! app](/)** is designed to support.
 
 The app gives children a friendly, simple way to practice positive self talk every day. Parents play a small but important role in the beginning by setting things up, choosing affirmations, and helping guide the habit.
 
@@ -284,9 +284,9 @@ Morning routines aren't just about getting out the door on time (though that's c
 
 Over time, these small morning investments compound. The child who hears "I can do hard things" every morning will eventually believe it—and act accordingly.
 
-## Where Daily Affirmations Power Up fits in
+## Where Daily Power Up! fits in
 
-Building a consistent affirmation habit is easier with the right tools. The **[Daily Affirmations Power Up app](/)** was designed specifically to help families incorporate meaningful, age-appropriate affirmations into their daily routines.
+Building a consistent affirmation habit is easier with the right tools. The **[Daily Power Up! app](/)** was designed specifically to help families incorporate meaningful, age-appropriate affirmations into their daily routines.
 
 The app offers:
 
@@ -366,7 +366,7 @@ The early years (roughly ages 3–10) are a critical period for setting the patt
 
 ## How Families Can Cultivate Positive Self-Talk (Without Adding Stress)
 
-We all want to empower our kids, but real life is busy! Here's what we practice ourselves—and what we've built into Daily Affirmations Power Up to help families stay consistent without feeling overwhelmed:
+We all want to empower our kids, but real life is busy! Here's what we practice ourselves—and what we've built into Daily Power Up! to help families stay consistent without feeling overwhelmed:
 
 ### 1. Model What You Want to See
 
@@ -388,7 +388,7 @@ Confidence grows from effort, not only outcomes. Point out moments when your chi
 
 Kids respond to ownership. Let them choose or create their own affirmations, record themselves, or draw pictures that represent how they want to feel. These become anchors for tough moments.
 
-## What Makes Daily Affirmations Power Up Different?
+## What Makes Daily Power Up! Different?
 
 At Daily Power Up!, we wanted to create an experience that helps parents and kids turn these positive habits into fun, easy-to-stick-with rituals. Here's how our approach empowers families:
 
@@ -439,14 +439,14 @@ Some families notice new language and attitudes in less than two weeks. The most
 **Is this approach just for kids struggling with confidence?**
 Not at all. Even confident kids need tools to handle setbacks, reach for new goals, or deal with tough transitions.
 
-**Can kids use Daily Affirmations Power Up on their own?**
+**Can kids use Daily Power Up! on their own?**
 Yes! The kid-friendly visuals, voiceovers, and navigation mean even pre-readers or neurodiverse children can listen and participate independently.
 
 ## Start Your Family's Confidence Journey
 
 At the heart of raising confident kids is one simple truth: what they say to themselves becomes what they believe about the world—and their unique place in it. With a bit of intention, positive rituals, and daily practice, we can help our children build self-talk habits that last a lifetime.
 
-Ready to help your child power up their confidence with the support of hundreds of other families? You can explore the Daily Affirmations Power Up app for iOS and see how fun, friendly positive self-talk fits right into your family's real life. [Try Daily Power Up today](https://apps.apple.com/app/id6744414135) and let's grow resilient, joyful kids together—one small affirmation at a time.
+Ready to help your child power up their confidence with the support of hundreds of other families? You can explore the Daily Power Up! app for iOS and see how fun, friendly positive self-talk fits right into your family's real life. [Try Daily Power Up today](https://apps.apple.com/app/id6744414135) and let's grow resilient, joyful kids together—one small affirmation at a time.
     `,
     sources: [
       { name: "Daily Power Up! App on the App Store", url: "https://apps.apple.com/app/id6744414135" }
@@ -543,7 +543,7 @@ We've learned that the most effective affirmations aren't just positive—they'r
 
 ## How We Designed Daily Power Up! for Calming Bedtime Routines
 
-When we created the **[Daily Affirmations Power Up app](/)**, we listened to real parents' stories. We designed every feature around what actually works for modern families and their unique challenges at night:
+When we created the **[Daily Power Up! app](/)**, we listened to real parents' stories. We designed every feature around what actually works for modern families and their unique challenges at night:
 
 - **Kid-friendly, calming affirmations** that support confidence and relaxation, written in language that is easy to repeat.
 
@@ -577,7 +577,7 @@ Our vision for Daily Power Up! has always been bigger than just making bedtime e
 
 If you're looking for a gentle, age-appropriate, and actually enjoyable way to help your kids fall asleep peacefully (and wake up feeling strong), bedtime affirmations are a truly valuable tool. You don't need to do everything perfectly—you just need to start. Whether you use your own voice, affirmation cards, or a supportive app, the benefits stretch far beyond a single night.
 
-If you're ready for a meaningful way to power up your child's confidence each evening, [download the Daily Affirmations Power Up app on the App Store](https://apps.apple.com/app/id6744414135). Our app is designed to bring families exactly the kind of calm, confidence-building ritual that makes bedtime smoother for everyone. Here's to calmer nights and brighter, braver days—one affirmation at a time.
+If you're ready for a meaningful way to power up your child's confidence each evening, [download the Daily Power Up! app on the App Store](https://apps.apple.com/app/id6744414135). Our app is designed to bring families exactly the kind of calm, confidence-building ritual that makes bedtime smoother for everyone. Here's to calmer nights and brighter, braver days—one affirmation at a time.
     `,
     sources: [
       { name: "Daily Power Up! App on the App Store", url: "https://apps.apple.com/app/id6744414135" }
@@ -723,11 +723,11 @@ This is the gift of neuroplasticity: **you are not defined by your past programm
 
 The same is true for your children. The affirmations they practice, the beliefs they rehearse, the responses they learn—these are all building the neural architecture that will support them for life.
 
-## Where Daily Affirmations Power Up Fits In
+## Where Daily Power Up! Fits In
 
-Understanding neuroplasticity is one thing. Applying it consistently—especially with kids—is another challenge entirely. That's exactly why we created the **[Daily Affirmations Power Up app](/)**.
+Understanding neuroplasticity is one thing. Applying it consistently—especially with kids—is another challenge entirely. That's exactly why we created the **[Daily Power Up! app](/)**.
 
-That's exactly why we created **Daily Affirmations Power Up**. The app makes it easy to:
+That's exactly why we created **Daily Power Up!**. The app makes it easy to:
 
 - Practice age-appropriate affirmations that rewire young brains toward confidence
 - Build the daily repetition that neuroplasticity requires
@@ -740,7 +740,7 @@ Whether you use it at morning, bedtime, or whenever your family needs a mindset 
 
 Your new reality will catch up.
 
-Ready to start rewiring? [Download Daily Affirmations Power Up](https://apps.apple.com/app/id6744414135) and begin building stronger neural pathways—one affirmation at a time.
+Ready to start rewiring? [Download Daily Power Up!](https://apps.apple.com/app/id6744414135) and begin building stronger neural pathways—one affirmation at a time.
     `,
     sources: [
       { name: "NCBI Bookshelf. Neuroplasticity - StatPearls.", url: "https://www.ncbi.nlm.nih.gov/books/NBK557811/" },
@@ -898,8 +898,8 @@ export default function BlogPost() {
               </div>
             </div>
             <div className="flex flex-col">
-              <span className="text-xs tracking-widest uppercase text-gray-400">Daily Affirmations</span>
-              <span className="text-sm font-semibold text-gray-200">Power Up</span>
+              <span className="text-xs tracking-widest uppercase text-gray-400">Daily</span>
+              <span className="text-sm font-semibold text-gray-200">Power Up!</span>
             </div>
           </Link>
           <a
@@ -1039,7 +1039,7 @@ export default function BlogPost() {
                       rel="noopener noreferrer"
                       className="px-4 py-2 rounded-full bg-gradient-to-r from-green-500 to-green-600 text-white text-sm font-medium flex items-center gap-2"
                     >
-                      Try Daily Affirmations Power Up <span>↗</span>
+                      Try Daily Power Up! <span>↗</span>
                     </a>
                     <a
                       href="https://www.dailyaffirmationspowerup.com"
@@ -1141,7 +1141,7 @@ export default function BlogPost() {
       {/* Footer */}
       <footer className="py-6 px-6 border-t border-blue-900/50 bg-slate-950">
         <div className="max-w-5xl mx-auto flex flex-wrap items-center justify-between gap-4 text-sm text-gray-400">
-          <span>© {new Date().getFullYear()} Daily Affirmations Power Up. All rights reserved.</span>
+          <span>© {new Date().getFullYear()} Daily Power Up!. All rights reserved.</span>
           <span>Made for gentle, realistic self talk that fits into real life.</span>
         </div>
       </footer>

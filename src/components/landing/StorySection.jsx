@@ -47,7 +47,7 @@ export default function StorySection() {
   };
 
   return (
-    <section className="py-20 md:py-32 px-6 bg-gradient-to-b from-blue-50 to-white">
+    <section className="pt-12 md:pt-16 pb-20 md:pb-32 px-6 bg-white">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 40 }}

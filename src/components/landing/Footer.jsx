@@ -9,7 +9,7 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto">
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           <div>
-            <h3 className="text-white font-bold text-lg mb-4">Daily Affirmations Power Up!</h3>
+            <h3 className="text-white font-bold text-lg mb-4">Daily Power Up!</h3>
             <p className="text-sm leading-relaxed">
               Empowering kids with positive self-talk, one affirmation at a time.
             </p>
@@ -19,8 +19,8 @@ export default function Footer() {
             <h4 className="text-white font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2 text-sm">
               <li><a href="#" className="hover:text-white transition-colors duration-200">About</a></li>
-              <li><Link to={createPageUrl("FAQ")} className="hover:text-white transition-colors duration-200">FAQ</Link></li>
-              <li><Link to={createPageUrl("Blog")} className="hover:text-white transition-colors duration-200">Blog</Link></li>
+              <li><Link to={"/FAQ"} className="hover:text-white transition-colors duration-200">FAQ</Link></li>
+              <li><Link to={"/Blog"} className="hover:text-white transition-colors duration-200">Blog</Link></li>
               <li><a href="#" className="hover:text-white transition-colors duration-200">Privacy Policy</a></li>
               <li><a href="#" className="hover:text-white transition-colors duration-200">Terms of Service</a></li>
               <li><a href="https://apps.apple.com/us/app/daily-affirmations-power-up/id6744414135" target="_blank" className="hover:text-white transition-colors duration-200">App Store</a></li>
@@ -43,7 +43,7 @@ export default function Footer() {
             Made with <Heart className="w-4 h-4 text-red-500 fill-red-500" /> by a family for families
           </p>
           <p className="text-xs text-gray-500 mt-2">
-            © 2024 Daily Affirmations Power Up! All rights reserved.
+            © 2024 Daily Power Up! All rights reserved.
           </p>
         </div>
       </div>

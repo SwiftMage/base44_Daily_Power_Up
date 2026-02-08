@@ -7,6 +7,15 @@ import Blog from "./Blog";
 import BlogPost from "./BlogPost";
 
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
+
+function ScrollToTop() {
+    const { pathname } = useLocation();
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [pathname]);
+    return null;
+}
 
 const PAGES = {
 
@@ -37,6 +46,7 @@ function PagesContent() {
     
     return (
         <Layout currentPageName={currentPage}>
+            <ScrollToTop />
             <Routes>
 
                     <Route path="/" element={<Home />} />
