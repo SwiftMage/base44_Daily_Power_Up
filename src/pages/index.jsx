@@ -5,6 +5,7 @@ import Admin from "./Admin";
 import FAQ from "./FAQ";
 import Blog from "./Blog";
 import BlogPost from "./BlogPost";
+import Privacy from "./Privacy";
 
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
@@ -61,6 +62,8 @@ function PagesContent() {
                 <Route path="/Blog" element={<Blog />} />
 
                 <Route path="/blog/:slug" element={<BlogPost />} />
+
+                <Route path="/Privacy" element={<Privacy />} />
 
             </Routes>
         </Layout>

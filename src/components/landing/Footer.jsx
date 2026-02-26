@@ -21,8 +21,8 @@ export default function Footer() {
               <li><a href="#" className="hover:text-white transition-colors duration-200">About</a></li>
               <li><Link to={"/FAQ"} className="hover:text-white transition-colors duration-200">FAQ</Link></li>
               <li><Link to={"/Blog"} className="hover:text-white transition-colors duration-200">Blog</Link></li>
-              <li><a href="#" className="hover:text-white transition-colors duration-200">Privacy Policy</a></li>
-              <li><a href="#" className="hover:text-white transition-colors duration-200">Terms of Service</a></li>
+              <li><Link to="/Privacy" className="hover:text-white transition-colors duration-200">Privacy Policy</Link></li>
+              <li><a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-200">Terms of Service</a></li>
               <li><a href="https://apps.apple.com/us/app/daily-affirmations-power-up/id6744414135" target="_blank" className="hover:text-white transition-colors duration-200">App Store</a></li>
             </ul>
           </div>
