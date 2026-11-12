@@ -1,0 +1,250 @@
+[
+  {
+    "category": "Self Esteem",
+    "audioFileName": "",
+    "categoryIcon": "heart.circle.fill",
+    "id": "teacher-01",
+    "text": "I am proud of who I am inside and out.",
+    "audioSrc": "/app-audio/teacher-01.mp3"
+  },
+  {
+    "category": "Self Esteem",
+    "audioFileName": "",
+    "categoryIcon": "heart.circle.fill",
+    "id": "teacher-02",
+    "text": "I always try my best; my best is good enough.",
+    "audioSrc": "/app-audio/teacher-02.mp3"
+  },
+  {
+    "category": "Self Esteem",
+    "audioFileName": "",
+    "categoryIcon": "heart.circle.fill",
+    "id": "teacher-03",
+    "text": "I grow more confident every day.",
+    "audioSrc": "/app-audio/teacher-03.mp3"
+  },
+  {
+    "category": "Self Esteem",
+    "audioFileName": "",
+    "categoryIcon": "heart.circle.fill",
+    "id": "teacher-04",
+    "text": "I believe in myself.",
+    "audioSrc": "/app-audio/teacher-04.mp3"
+  },
+  {
+    "category": "Self Esteem",
+    "audioFileName": "",
+    "categoryIcon": "heart.circle.fill",
+    "id": "teacher-05",
+    "text": "I am smart and creative.",
+    "audioSrc": "/app-audio/teacher-05.mp3"
+  },
+  {
+    "category": "School",
+    "audioFileName": "",
+    "categoryIcon": "books.vertical.fill",
+    "id": "teacher-06",
+    "text": "I am a good friend and classmate.",
+    "audioSrc": "/app-audio/teacher-06.mp3"
+  },
+  {
+    "category": "Building Resilience",
+    "audioFileName": "",
+    "categoryIcon": "infinity.circle",
+    "id": "teacher-07",
+    "text": "I can handle challenges and work through them.",
+    "audioSrc": "/app-audio/teacher-07.mp3"
+  },
+  {
+    "category": "Building Resilience",
+    "audioFileName": "",
+    "categoryIcon": "infinity.circle",
+    "id": "teacher-08",
+    "text": "I am excited to take on any challenge",
+    "audioSrc": "/app-audio/teacher-08.mp3"
+  },
+  {
+    "category": "Building Resilience",
+    "audioFileName": "",
+    "categoryIcon": "infinity.circle",
+    "id": "teacher-09",
+    "text": "I can do anything I set my mind to.",
+    "audioSrc": "/app-audio/teacher-09.mp3"
+  },
+  {
+    "category": "Building Resilience",
+    "audioFileName": "",
+    "categoryIcon": "infinity.circle",
+    "id": "teacher-10",
+    "text": "If I fail, I will try again.",
+    "audioSrc": "/app-audio/teacher-10.mp3"
+  },
+  {
+    "category": "Building Resilience",
+    "audioFileName": "",
+    "categoryIcon": "infinity.circle",
+    "id": "teacher-11",
+    "text": "I can do hard things.",
+    "audioSrc": "/app-audio/teacher-11.mp3"
+  },
+  {
+    "category": "School",
+    "audioFileName": "",
+    "categoryIcon": "books.vertical.fill",
+    "id": "teacher-12",
+    "text": "I am excited to learn new things every day.",
+    "audioSrc": "/app-audio/teacher-12.mp3"
+  },
+  {
+    "category": "Building Resilience",
+    "audioFileName": "",
+    "categoryIcon": "infinity.circle",
+    "id": "teacher-13",
+    "text": "Every day and in every way, I get better and better.",
+    "audioSrc": "/app-audio/teacher-13.mp3"
+  },
+  {
+    "category": "Building Resilience",
+    "audioFileName": "",
+    "categoryIcon": "infinity.circle",
+    "id": "teacher-14",
+    "text": "Mistakes help me learn and grow.",
+    "audioSrc": "/app-audio/teacher-14.mp3"
+  },
+  {
+    "category": "Building Resilience",
+    "audioFileName": "",
+    "categoryIcon": "infinity.circle",
+    "id": "teacher-15",
+    "text": "I can handle hard things one step at a time.",
+    "audioSrc": "/app-audio/teacher-15.mp3"
+  },
+  {
+    "category": "Building Resilience",
+    "audioFileName": "",
+    "categoryIcon": "infinity.circle",
+    "id": "teacher-16",
+    "text": "Every time I practice, I’m getting better and better.",
+    "audioSrc": "/app-audio/teacher-16.mp3"
+  },
+  {
+    "category": "School",
+    "audioFileName": "",
+    "categoryIcon": "books.vertical.fill",
+    "id": "teacher-17",
+    "text": "Learning new things Is fun.",
+    "audioSrc": "/app-audio/teacher-17.mp3"
+  },
+  {
+    "category": "Building Resilience",
+    "audioFileName": "",
+    "categoryIcon": "infinity.circle",
+    "id": "teacher-18",
+    "text": "I may stumble but I never stay down.",
+    "audioSrc": "/app-audio/teacher-18.mp3"
+  },
+  {
+    "category": "Building Resilience",
+    "audioFileName": "",
+    "categoryIcon": "infinity.circle",
+    "id": "teacher-19",
+    "text": "I stay positive even when things don’t go my way.",
+    "audioSrc": "/app-audio/teacher-19.mp3"
+  },
+  {
+    "category": "Building Resilience",
+    "audioFileName": "",
+    "categoryIcon": "infinity.circle",
+    "id": "teacher-20",
+    "text": "I do not need everything to be perfect to be ok.",
+    "audioSrc": "/app-audio/teacher-20.mp3"
+  },
+  {
+    "category": "School",
+    "audioFileName": "",
+    "categoryIcon": "books.vertical.fill",
+    "id": "teacher-21",
+    "text": "I know mistakes are part of learning and improving.",
+    "audioSrc": "/app-audio/teacher-21.mp3"
+  },
+  {
+    "category": "Anxiety",
+    "audioFileName": "",
+    "categoryIcon": "sparkles",
+    "id": "teacher-22",
+    "text": "When I feel stuck, I take a deep breath.",
+    "audioSrc": "/app-audio/teacher-22.mp3"
+  },
+  {
+    "category": "Anxiety",
+    "audioFileName": "",
+    "categoryIcon": "sparkles",
+    "id": "teacher-23",
+    "text": "I can take deep breaths to help myself feel calm.",
+    "audioSrc": "/app-audio/teacher-23.mp3"
+  },
+  {
+    "category": "School",
+    "audioFileName": "",
+    "categoryIcon": "books.vertical.fill",
+    "id": "teacher-24",
+    "text": "I can ask for help anytime I need it.",
+    "audioSrc": "/app-audio/teacher-24.mp3"
+  },
+  {
+    "category": "Anxiety",
+    "audioFileName": "",
+    "categoryIcon": "sparkles",
+    "id": "teacher-25",
+    "text": "I stay calm and collected even during tough moments.",
+    "audioSrc": "/app-audio/teacher-25.mp3"
+  },
+  {
+    "category": "School",
+    "audioFileName": "",
+    "categoryIcon": "books.vertical.fill",
+    "id": "teacher-26",
+    "text": "I can stay organized and complete my tasks.",
+    "audioSrc": "/app-audio/teacher-26.mp3"
+  },
+  {
+    "category": "School",
+    "audioFileName": "",
+    "categoryIcon": "books.vertical.fill",
+    "id": "teacher-27",
+    "text": "I stay calm and focused when solving problems.",
+    "audioSrc": "/app-audio/teacher-27.mp3"
+  },
+  {
+    "category": "Self Esteem",
+    "audioFileName": "",
+    "categoryIcon": "heart.circle.fill",
+    "id": "teacher-28",
+    "text": "I am calm, confident and capable.",
+    "audioSrc": "/app-audio/teacher-28.mp3"
+  },
+  {
+    "category": "Self Esteem",
+    "audioFileName": "",
+    "categoryIcon": "heart.circle.fill",
+    "id": "teacher-29",
+    "text": "I am patient with myself and with others.",
+    "audioSrc": "/app-audio/teacher-29.mp3"
+  },
+  {
+    "category": "School",
+    "audioFileName": "",
+    "categoryIcon": "books.vertical.fill",
+    "id": "teacher-30",
+    "text": "I am kind and respectful to my classmates and teachers.",
+    "audioSrc": "/app-audio/teacher-30.mp3"
+  },
+  {
+    "category": "School",
+    "audioFileName": "",
+    "categoryIcon": "books.vertical.fill",
+    "id": "teacher-31",
+    "text": "I treat others the way I want to be treated.",
+    "audioSrc": "/app-audio/teacher-31.mp3"
+  }
+]

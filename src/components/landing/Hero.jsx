@@ -69,6 +69,7 @@ export default function Hero() {
         <div className="flex items-center gap-3 md:gap-8 flex-wrap mt-1 md:mt-0">
           <a href="/Blog" className="text-white text-sm md:text-base font-medium hover:text-white/80 transition">Blog</a>
           <a href="/FAQ" className="text-white text-sm md:text-base font-medium hover:text-white/80 transition">FAQ</a>
+          <a href="/app" className="text-white text-sm md:text-base font-bold px-3 py-2 rounded-full bg-white/15 border border-white/30 hover:bg-white/25 transition">Web app</a>
           <a href="#eguide" className="text-white text-sm md:text-base font-medium hover:text-white/80 transition">E-Guide</a>
           <a href="#faq" className="text-white text-sm md:text-base font-medium hover:text-white/80 transition">Community</a>
           <a href="https://apps.apple.com/us/app/daily-affirmations-power-up/id6744414135" target="_blank" rel="noopener noreferrer">

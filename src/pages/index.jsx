@@ -8,7 +8,9 @@ import BlogPost from "./BlogPost";
 import Privacy from "./Privacy";
 
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
-import { useEffect } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
+
+const AppAccess = lazy(() => import("./AppAccess"));
 
 function ScrollToTop() {
     const { pathname } = useLocation();
@@ -64,6 +66,8 @@ function PagesContent() {
                 <Route path="/blog/:slug" element={<BlogPost />} />
 
                 <Route path="/Privacy" element={<Privacy />} />
+
+                <Route path="/app/*" element={<Suspense fallback={<div className="min-h-screen grid place-items-center bg-gradient-to-br from-blue-700 to-purple-800 text-white font-bold">Loading your affirmations…</div>}><AppAccess /></Suspense>} />
 
             </Routes>
         </Layout>

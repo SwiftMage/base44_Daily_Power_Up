@@ -46,44 +46,42 @@ export default function Privacy() {
       {/* Content */}
       <section className="py-16 px-6 relative">
         <div className="max-w-3xl mx-auto relative z-10 space-y-10">
-          <p className="text-sm text-gray-500">Last Updated: September 2024</p>
+          <p className="text-sm text-gray-500">Last Updated: November 10, 2026</p>
 
           <div>
             <h2 className="text-2xl font-bold text-gray-900 mb-4">Information We Collect</h2>
             <p className="text-gray-700 text-lg leading-relaxed">
-              Daily Power Up! does not collect or store any personal information directly from its users. However, when users opt for premium features, RevenueCat — a third-party subscription manager — collects purchase history linked to an anonymous identifier that cannot identify users personally.
+              The web app uses one shared password for the teacher profile. The password is checked by a Vercel server function; the web app does not create individual accounts or ask for a sign-in email. The web app does not currently check Apple or RevenueCat subscription status. If you submit an email through a free-resource form, it is stored in the website's Supabase email signups table so we can manage that request.
+            </p>
+            <p className="text-gray-700 text-lg leading-relaxed mt-4">
+              In the web app, affirmation choices, custom affirmations, playlists, themes, stars, and streaks are saved in local storage in the browser you use. They are not uploaded to our app database or synced between devices. Anyone using the same browser profile may see and change that browser's saved app data; clearing that browser's site data removes it. People using the shared login in different browsers or on different devices each have their own local copy.
+            </p>
+            <p className="text-gray-700 text-lg leading-relaxed mt-4">
+              Our hosting provider, Vercel, may process technical information such as IP address, browser details, and request or diagnostic data to deliver and secure the website.
             </p>
           </div>
 
           <div>
             <h2 className="text-2xl font-bold text-gray-900 mb-4">Data Usage</h2>
             <p className="text-gray-700 text-lg leading-relaxed mb-4">
-              Since no personal data is collected directly, we don't use it. RevenueCat's anonymous purchase information serves the following purposes:
+              We use email addresses submitted through free-resource forms to manage those requests. The shared password allows a group to sign in to the teacher profile. Locally saved app data powers the web app features in each browser. Listen and repeat is self-guided in this beta; the web app does not request microphone access or record speech. We do not use the web app's local profile or progress data for advertising or analytics.
             </p>
-            <ul className="space-y-3 ml-6">
-              <li className="text-gray-700 text-lg leading-relaxed">
-                <span className="font-semibold">App Functionality:</span> Authenticating subscriptions, enabling premium features, preventing fraud, ensuring security and performance, and providing customer support.
-              </li>
-              <li className="text-gray-700 text-lg leading-relaxed">
-                <span className="font-semibold">Analytics:</span> Evaluating subscription-related user behavior anonymously to improve features and understand audience size.
-              </li>
-            </ul>
           </div>
 
           <div>
             <h2 className="text-2xl font-bold text-gray-900 mb-4">Children's Privacy</h2>
             <p className="text-gray-700 text-lg leading-relaxed">
-              Daily Power Up! is designed safely for children and complies with COPPA. We do not directly collect any personal information from children or any other users.
+              A parent, caregiver, or teacher should manage the shared sign-in and decide who may use it. Profile information stays in each browser's local storage as described above.
             </p>
           </div>
 
           <div>
             <h2 className="text-2xl font-bold text-gray-900 mb-4">Third-Party Services</h2>
             <p className="text-gray-700 text-lg leading-relaxed">
-              RevenueCat manages subscriptions using anonymous identifiers. You can review their privacy practices at{" "}
-              <a href="https://www.revenuecat.com/privacy/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
-                revenuecat.com/privacy
-              </a>.
+              The website uses Supabase to manage free-resource email signups and Vercel for hosting and web app sign-in. You can review their privacy notices at{" "}
+              <a href="https://supabase.com/privacy" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">Supabase</a>,{" "}
+              <a href="https://vercel.com/legal/privacy-notice" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">Vercel</a>. The iOS app uses RevenueCat to manage in-app subscriptions; its privacy practices are described at{" "}
+              <a href="https://www.revenuecat.com/privacy/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">RevenueCat</a>.
             </p>
           </div>
 

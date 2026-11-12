@@ -20,6 +20,7 @@ export default function Footer() {
             <ul className="space-y-2 text-sm">
               <li><a href="#" className="hover:text-white transition-colors duration-200">About</a></li>
               <li><Link to={"/FAQ"} className="hover:text-white transition-colors duration-200">FAQ</Link></li>
+              <li><Link to="/app" className="hover:text-white transition-colors duration-200">Web app</Link></li>
               <li><Link to={"/Blog"} className="hover:text-white transition-colors duration-200">Blog</Link></li>
               <li><Link to="/Privacy" className="hover:text-white transition-colors duration-200">Privacy Policy</Link></li>
               <li><a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-200">Terms of Service</a></li>
