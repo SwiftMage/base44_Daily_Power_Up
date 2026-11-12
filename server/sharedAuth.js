@@ -3,6 +3,8 @@ import teacherAffirmations from "./teacherAffirmations.json" with { type: "json"
 const COOKIE_NAME = "dpu_shared_session";
 const SESSION_LIFETIME_SECONDS = 60 * 60 * 24 * 7;
 const SHARED_PASSWORD = "fireball";
+// Temporarily open the Teacher web beta. Set this to false to restore password sign-in.
+const DIRECT_TEACHER_ACCESS = true;
 
 function equalSecret(candidate, expected) {
   const candidateBytes = Buffer.from(String(candidate ?? ""));
@@ -89,7 +91,10 @@ export async function handleSharedAuthRoute(route, req, res) {
 
   if (route === "session") {
     const session = readSharedSession(req);
-    return json(res, 200, { authenticated: Boolean(session) });
+    return json(res, 200, {
+      authenticated: DIRECT_TEACHER_ACCESS || Boolean(session),
+      directAccess: DIRECT_TEACHER_ACCESS,
+    });
   }
 
   if (route === "logout") {
@@ -109,6 +114,6 @@ export function handleAffirmationsRoute(req, res) {
     res.setHeader("Allow", "GET");
     return json(res, 405, { error: "Method not allowed." });
   }
-  if (!readSharedSession(req)) return json(res, 401, { error: "Sign in to load the teacher affirmations." });
+  if (!DIRECT_TEACHER_ACCESS && !readSharedSession(req)) return json(res, 401, { error: "Sign in to load the teacher affirmations." });
   return json(res, 200, teacherAffirmations);
 }

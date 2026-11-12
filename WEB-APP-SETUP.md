@@ -1,6 +1,6 @@
-# Shared web app password
+# Web app access
 
-The web beta has one password field, with the shared password set to `fireball`. No username, database, or Vercel environment variables are needed. The server checks the password and issues a signed, HTTP-only session cookie.
+Temporary direct access is controlled by DIRECT_TEACHER_ACCESS in server/sharedAuth.js. It is currently true, so the Teacher profile opens without a password and the affirmations endpoint is temporarily open. Set it to false and redeploy to restore password sign-in. No username, database, or Vercel environment variables are needed.
 
 To change the password later, update `SHARED_PASSWORD` in `server/sharedAuth.js` and redeploy the site.
 

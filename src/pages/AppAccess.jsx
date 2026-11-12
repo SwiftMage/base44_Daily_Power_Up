@@ -66,13 +66,18 @@ function getTopicIcon(category) {
 
 export default function AppAccess() {
   const [session, setSession] = useState(null);
+  const [directAccess, setDirectAccess] = useState(false);
   const [checkingSession, setCheckingSession] = useState(true);
 
   useEffect(() => {
     let active = true;
     fetch("/api/shared-session", { cache: "no-store" })
       .then((response) => response.json())
-      .then((result) => { if (active && result.authenticated) setSession(true); })
+      .then((result) => {
+        if (!active || !result.authenticated) return;
+        setSession(true);
+        setDirectAccess(Boolean(result.directAccess));
+      })
       .catch(() => {})
       .finally(() => { if (active) setCheckingSession(false); });
     return () => {
@@ -81,14 +86,15 @@ export default function AppAccess() {
   }, []);
 
   if (checkingSession) {
-    return <div className="dpu-auth-loading"><LoaderCircle className="dpu-spin" /> Checking your sign-in…</div>;
+    return <div className="dpu-auth-loading"><LoaderCircle className="dpu-spin" /> Opening your teacher profile…</div>;
   }
   if (!session) return <LoginScreen onSignedIn={setSession} />;
-  return <AppWorkspace onSignOut={async () => {
+  return <AppWorkspace directAccess={directAccess} onSignOut={async () => {
     try {
       await fetch("/api/shared-logout", { method: "POST" });
     } finally {
       setSession(null);
+      setDirectAccess(false);
     }
   }} />;
 }
@@ -145,7 +151,7 @@ function LoginScreen({ onSignedIn }) {
   );
 }
 
-function AppWorkspace({ onSignOut }) {
+function AppWorkspace({ onSignOut, directAccess }) {
   const local = useMemo(() => readLocalState(), []);
   const [profiles, setProfiles] = useState(local.profiles);
   const [library, setLibrary] = useState([]);
@@ -266,7 +272,7 @@ function AppWorkspace({ onSignOut }) {
   ];
 
   if (libraryLoading) return <div className="dpu-auth-loading"><LoaderCircle className="dpu-spin" /> Loading the teacher affirmations…</div>;
-  if (libraryError) return <div className="dpu-auth-loading"><p>{libraryError}</p><button className="dpu-button dpu-button-glass" onClick={onSignOut}>Sign out</button></div>;
+  if (libraryError) return <div className="dpu-auth-loading"><p>{libraryError}</p><button className="dpu-button dpu-button-glass" onClick={() => window.location.reload()}>Try again</button></div>;
 
   return (
     <div className="dpu-app-root" data-theme={profile?.theme || "blueberry"}>
@@ -274,8 +280,8 @@ function AppWorkspace({ onSignOut }) {
         <a className="dpu-app-brand" href="/"><span className="dpu-brand-burst">★</span><span>Daily Power Up!</span></a>
         <div className="dpu-topbar-right">
           <span className="dpu-beta-chip">Web beta</span>
-          <span className="dpu-access-label">Shared access</span>
-          <button className="dpu-icon-button dpu-signout" onClick={onSignOut} aria-label="Sign out" title="Sign out"><LogOut size={18} /></button>
+          <span className="dpu-access-label">{directAccess ? "Teacher profile" : "Shared access"}</span>
+          {!directAccess && <button className="dpu-icon-button dpu-signout" onClick={onSignOut} aria-label="Sign out" title="Sign out"><LogOut size={18} /></button>}
         </div>
       </header>
       <div className="dpu-app-frame">
@@ -291,7 +297,7 @@ function AppWorkspace({ onSignOut }) {
           <nav className="dpu-side-nav" aria-label="App sections">
             {navItems.map(({ id, label, icon: Icon }) => <button key={id} className={`dpu-nav-item ${screen === id ? "is-active" : ""}`} onClick={() => setScreen(id)}><Icon size={18} />{label}</button>)}
           </nav>
-          {profile && <div className="dpu-sidebar-progress"><div className="dpu-progress-top"><Star size={17} fill="currentColor" /><strong>{profile.stars || 0}</strong><span>stars</span></div><div className="dpu-progress-bar"><span style={{ width: `${Math.min(100, ((profile.stars || 0) % 20) * 5)}%` }} /></div><small>{profile.streak || 0} day streak</small></div>}
+          {profile && <div className="dpu-sidebar-progress"><div className="dpu-progress-top"><Star size={17} fill="currentColor" /><strong>{profile.stars || 0}</strong><span>stars</span></div>{!profile.isTeacherMode && <div className="dpu-progress-bar"><span style={{ width: `${Math.min(100, ((profile.stars || 0) % 20) * 5)}%` }} /></div>}<small>{profile.streak || 0} day streak</small></div>}
           <div className="dpu-local-note">Saved on this browser<br />and this device</div>
         </aside>
         <main className="dpu-main">
@@ -325,7 +331,7 @@ function HomeScreen({ profile, items, onBrowse, onGuide, onPlay, onPlayOne, onRe
       <div className="dpu-home-banner">
         <div className="dpu-home-banner-copy"><span className="dpu-banner-icon"><Star size={26} fill="currentColor" /></span><div><strong>{profile.stars || 0} stars</strong><span>{(profile.stars || 0) >= 100 ? "Confidence Champion" : "Every kind thought counts"}</span></div></div>
         <div className="dpu-banner-streak"><span>🔥</span><strong>{profile.streak || 0}</strong><span>day streak</span></div>
-        <div className="dpu-banner-progress"><span style={{ width: `${Math.min(100, ((profile.stars || 0) % 20) * 5)}%` }} /></div>
+        {!profile.isTeacherMode && <div className="dpu-banner-progress"><span style={{ width: `${Math.min(100, ((profile.stars || 0) % 20) * 5)}%` }} /></div>}
       </div>
       <button className="dpu-start-listening" onClick={items.length ? onPlay : onBrowse}>
         <span className="dpu-start-play"><Play size={24} fill="currentColor" /></span><span className="dpu-start-copy"><strong>{items.length ? "Start listening" : "Build your list"}</strong><small>{items.length ? `${items.length} kind ${items.length === 1 ? "thought" : "thoughts"} to say` : "Choose affirmations that feel right for you"}</small></span><span className="dpu-start-arrow">{items.length ? "About " + Math.max(1, Math.round(items.length * 0.14)) + " min" : "Browse the library"}</span>

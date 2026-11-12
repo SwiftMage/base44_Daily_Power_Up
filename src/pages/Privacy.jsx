@@ -51,10 +51,10 @@ export default function Privacy() {
           <div>
             <h2 className="text-2xl font-bold text-gray-900 mb-4">Information We Collect</h2>
             <p className="text-gray-700 text-lg leading-relaxed">
-              The web app uses one shared password for the teacher profile. The password is checked by a Vercel server function; the web app does not create individual accounts or ask for a sign-in email. The web app does not currently check Apple or RevenueCat subscription status. If you submit an email through a free-resource form, it is stored in the website's Supabase email signups table so we can manage that request.
+              The Teacher web profile currently opens without a password as a temporary beta. It does not create individual accounts or ask for a sign-in email, and it does not currently check Apple or RevenueCat subscription status. If you submit an email through a free-resource form, it is stored in the website's Supabase email signups table so we can manage that request.
             </p>
             <p className="text-gray-700 text-lg leading-relaxed mt-4">
-              In the web app, affirmation choices, custom affirmations, playlists, themes, stars, and streaks are saved in local storage in the browser you use. They are not uploaded to our app database or synced between devices. Anyone using the same browser profile may see and change that browser's saved app data; clearing that browser's site data removes it. People using the shared login in different browsers or on different devices each have their own local copy.
+              In the web app, affirmation choices, custom affirmations, playlists, themes, stars, and streaks are saved in local storage in the browser you use. They are not uploaded to our app database or synced between devices. Anyone using the same browser profile may see and change that browser's saved app data; clearing that browser's site data removes it. Each browser and device has its own local copy.
             </p>
             <p className="text-gray-700 text-lg leading-relaxed mt-4">
               Our hosting provider, Vercel, may process technical information such as IP address, browser details, and request or diagnostic data to deliver and secure the website.
@@ -71,14 +71,14 @@ export default function Privacy() {
           <div>
             <h2 className="text-2xl font-bold text-gray-900 mb-4">Children's Privacy</h2>
             <p className="text-gray-700 text-lg leading-relaxed">
-              A parent, caregiver, or teacher should manage the shared sign-in and decide who may use it. Profile information stays in each browser's local storage as described above.
+              A parent, caregiver, or teacher should manage access to this beta and decide who may use it. Profile information stays in each browser's local storage as described above.
             </p>
           </div>
 
           <div>
             <h2 className="text-2xl font-bold text-gray-900 mb-4">Third-Party Services</h2>
             <p className="text-gray-700 text-lg leading-relaxed">
-              The website uses Supabase to manage free-resource email signups and Vercel for hosting and web app sign-in. You can review their privacy notices at{" "}
+              The website uses Supabase to manage free-resource email signups and Vercel for hosting and the web app API. You can review their privacy notices at{" "}
               <a href="https://supabase.com/privacy" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">Supabase</a>,{" "}
               <a href="https://vercel.com/legal/privacy-notice" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">Vercel</a>. The iOS app uses RevenueCat to manage in-app subscriptions; its privacy practices are described at{" "}
               <a href="https://www.revenuecat.com/privacy/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">RevenueCat</a>.
