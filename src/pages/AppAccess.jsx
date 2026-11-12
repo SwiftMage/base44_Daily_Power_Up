@@ -328,11 +328,11 @@ function HomeScreen({ profile, items, onBrowse, onGuide, onPlay, onPlayOne, onRe
         <div><p className="dpu-eyebrow">A bright moment starts here</p><h1>Hi, {profile.name.split(" ")[0]} <span>✦</span></h1><p>{profile.isTeacherMode ? "Listen to a Teacher affirmation or play the whole collection." : "Pick a kind thought or listen to your whole collection."}</p></div>
         {!profile.isTeacherMode && <div className="dpu-heading-actions"><button className="dpu-button dpu-button-glass" onClick={onGuide}><Sparkles size={17} /> Guided picks</button><button className="dpu-button dpu-button-glass" onClick={onCustom}><Plus size={17} /> Add your own</button></div>}
       </div>
-      <div className="dpu-home-banner">
+      {!profile.isTeacherMode && <div className="dpu-home-banner">
         <div className="dpu-home-banner-copy"><span className="dpu-banner-icon"><Star size={26} fill="currentColor" /></span><div><strong>{profile.stars || 0} stars</strong><span>{(profile.stars || 0) >= 100 ? "Confidence Champion" : "Every kind thought counts"}</span></div></div>
         <div className="dpu-banner-streak"><span>🔥</span><strong>{profile.streak || 0}</strong><span>day streak</span></div>
-        {!profile.isTeacherMode && <div className="dpu-banner-progress"><span style={{ width: `${Math.min(100, ((profile.stars || 0) % 20) * 5)}%` }} /></div>}
-      </div>
+        <div className="dpu-banner-progress"><span style={{ width: `${Math.min(100, ((profile.stars || 0) % 20) * 5)}%` }} /></div>
+      </div>}
       <button className="dpu-start-listening" onClick={items.length ? onPlay : onBrowse}>
         <span className="dpu-start-play"><Play size={24} fill="currentColor" /></span><span className="dpu-start-copy"><strong>{items.length ? "Start listening" : "Build your list"}</strong><small>{items.length ? `${items.length} kind ${items.length === 1 ? "thought" : "thoughts"} to say` : "Choose affirmations that feel right for you"}</small></span><span className="dpu-start-arrow">{items.length ? "About " + Math.max(1, Math.round(items.length * 0.14)) + " min" : "Browse the library"}</span>
       </button>
