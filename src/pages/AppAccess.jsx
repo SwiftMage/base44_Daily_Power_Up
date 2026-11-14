@@ -264,10 +264,12 @@ function AppWorkspace({ onSignOut, directAccess }) {
   }
 
   const navItems = [
-    { id: "home", label: "My list", icon: Heart },
-    { id: "browse", label: "Browse all", icon: Search },
-    ...(!profile?.isTeacherMode ? [{ id: "guide", label: "Guided picks", icon: Sparkles }] : []),
-    { id: "playlists", label: "Playlists", icon: ListMusic },
+    ...(!profile?.isTeacherMode ? [
+      { id: "home", label: "My list", icon: Heart },
+      { id: "browse", label: "Browse all", icon: Search },
+      { id: "guide", label: "Guided picks", icon: Sparkles },
+      { id: "playlists", label: "Playlists", icon: ListMusic },
+    ] : []),
     { id: "settings", label: "Settings", icon: Settings },
   ];
 
@@ -304,9 +306,9 @@ function AppWorkspace({ onSignOut, directAccess }) {
           <>
               <div className="dpu-mobile-profile"><img src={`/app-assets/avatars/${profile.avatar || 1}.png`} alt="" /><span>{profile.name}</span><span className="dpu-streak-pill">🔥 {profile.streak || 0} day streak</span></div>
               {screen === "home" && <HomeScreen profile={profile} items={selectedItems} onBrowse={() => setScreen("browse")} onGuide={() => { setGuidePicks([]); setGuideTopics([]); setScreen("guide"); }} onPlay={() => startPlayer(selectedItems)} onPlayOne={(item) => startPlayer([item])} onRemove={(id) => toggleAffirmation(id, false)} onCustom={() => setCustomDialog(true)} />}
-              {screen === "browse" && <BrowseScreen allItems={allItems} selectedIds={chosenIds} isTeacherMode={profile.isTeacherMode} category={category} setCategory={setCategory} query={query} setQuery={setQuery} onToggle={toggleAffirmation} onPlay={(item) => startPlayer([item])} />}
+              {screen === "browse" && !profile.isTeacherMode && <BrowseScreen allItems={allItems} selectedIds={chosenIds} isTeacherMode={profile.isTeacherMode} category={category} setCategory={setCategory} query={query} setQuery={setQuery} onToggle={toggleAffirmation} onPlay={(item) => startPlayer([item])} />}
               {screen === "guide" && !profile.isTeacherMode && <GuidedScreen topics={guideTopics} setTopics={setGuideTopics} picks={guidePicks} chosen={guideChosen} setChosen={setGuideChosen} offset={guideOffset} onBuild={() => showGuidedPicks(0)} onRefresh={() => showGuidedPicks(guideOffset + 4)} onChangeTopics={() => setGuidePicks([])} onAdd={() => addMany(guideChosen)} onPlay={(item) => startPlayer([item])} />}
-              {screen === "playlists" && <PlaylistsScreen profile={profile} playlistName={playlistName} setPlaylistName={setPlaylistName} onCreate={createPlaylist} onRemove={removePlaylist} onPlay={(ids) => startPlayer(ids.map((id) => allItems.find((item) => item.id === id)).filter(Boolean))} />}
+              {screen === "playlists" && !profile.isTeacherMode && <PlaylistsScreen profile={profile} playlistName={playlistName} setPlaylistName={setPlaylistName} onCreate={createPlaylist} onRemove={removePlaylist} onPlay={(ids) => startPlayer(ids.map((id) => allItems.find((item) => item.id === id)).filter(Boolean))} />}
               {screen === "settings" && <SettingsScreen profile={profile} updateProfile={updateProfile} />}
           </>
         </main>
@@ -337,7 +339,7 @@ function HomeScreen({ profile, items, onBrowse, onGuide, onPlay, onPlayOne, onRe
         <span className="dpu-start-play"><Play size={24} fill="currentColor" /></span><span className="dpu-start-copy"><strong>{items.length ? "Start listening" : "Build your list"}</strong><small>{items.length ? `${items.length} kind ${items.length === 1 ? "thought" : "thoughts"} to say` : "Choose affirmations that feel right for you"}</small></span><span className="dpu-start-arrow">{items.length ? "About " + Math.max(1, Math.round(items.length * 0.14)) + " min" : "Browse the library"}</span>
       </button>
       <section className="dpu-content-section">
-        <div className="dpu-section-heading"><div><h2>{profile.isTeacherMode ? "Teacher affirmations" : "Your kind thoughts"}</h2><p>{items.length ? (profile.isTeacherMode ? `${items.length} predefined affirmations` : `${items.length} in your collection`) : "Your collection is ready for its first affirmation."}</p></div><button className="dpu-text-button" onClick={onBrowse}>Browse all <ArrowLeft className="dpu-arrow-right" size={16} /></button></div>
+        <div className="dpu-section-heading"><div><h2>{profile.isTeacherMode ? "Teacher affirmations" : "Your kind thoughts"}</h2><p>{items.length ? (profile.isTeacherMode ? `${items.length} predefined affirmations` : `${items.length} in your collection`) : "Your collection is ready for its first affirmation."}</p></div>{!profile.isTeacherMode && <button className="dpu-text-button" onClick={onBrowse}>Browse all <ArrowLeft className="dpu-arrow-right" size={16} /></button>}</div>
         {items.length ? <div className="dpu-affirmation-grid">{items.map((item) => <AffirmationCard key={item.id} item={item} selected canEdit={!profile.isTeacherMode} onToggle={() => onRemove(item.id)} onPlay={() => onPlayOne(item)} />)}</div> : profile.isTeacherMode ? <div className="dpu-empty-list"><strong>Teacher affirmations aren't available right now.</strong><p>Refresh the page to try loading them again.</p></div> : <div className="dpu-empty-list"><div className="dpu-empty-orbit"><Sparkles /></div><div><strong>Let's add a few kind thoughts.</strong><p>Pick your own or let us choose a helpful starting set.</p></div><div className="dpu-empty-actions"><button className="dpu-button dpu-button-primary" onClick={onGuide}><Sparkles size={17} /> Guide me</button><button className="dpu-button dpu-button-glass" onClick={onBrowse}>Pick my own</button></div></div>}
       </section>
     </>
