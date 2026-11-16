@@ -362,3 +362,26 @@
 @media (prefers-reduced-motion: reduce) {
   .dpu-app-root *, .dpu-app-root *::before, .dpu-app-root *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }
+
+.dpu-celebration-overlay { position: fixed; inset: 0; z-index: 31; display: grid; place-items: center; overflow: hidden; pointer-events: none; }
+.dpu-confetti-burst { position: absolute; inset: 0; overflow: hidden; }
+.dpu-confetti-piece { position: absolute; top: 50%; left: 50%; width: 11px; height: 16px; opacity: 0; border-radius: 3px; background: var(--confetti-color); box-shadow: 0 0 10px color-mix(in srgb, var(--confetti-color), transparent 35%); animation: dpu-confetti-burst 2.3s cubic-bezier(.12,.72,.25,1) var(--burst-delay) both; }
+.dpu-confetti-piece-dot { width: 13px; height: 13px; border-radius: 50%; }
+.dpu-confetti-piece-ribbon { width: 7px; height: 21px; border-radius: 5px; }
+.dpu-celebration-message { position: relative; z-index: 1; display: grid; justify-items: center; gap: 3px; padding: 18px 30px 16px; border: 2px solid rgba(255,255,255,.9); border-radius: 23px; color: white; background: linear-gradient(120deg, rgba(30,145,246,.97), rgba(188,43,210,.97)); box-shadow: 0 18px 58px rgba(9,13,60,.5), 0 0 35px rgba(255,224,65,.42); font-size: clamp(22px, 4vw, 34px); font-weight: 950; letter-spacing: -.035em; text-align: center; text-shadow: 0 2px 9px rgba(19,24,80,.35); animation: dpu-celebration-pop .45s cubic-bezier(.16,1.25,.42,1) both; }
+.dpu-celebration-message small { color: rgba(255,255,255,.92); font-size: .48em; font-weight: 750; letter-spacing: 0; }
+.dpu-celebration-star { color: #ffe34d; font-size: 1.2em; line-height: .9; text-shadow: 0 0 15px rgba(255,227,77,.7); }
+@keyframes dpu-confetti-burst {
+  0% { opacity: 0; transform: translate(-50%, -50%) scale(.24) rotate(0deg); }
+  9% { opacity: 1; }
+  68% { opacity: 1; }
+  100% { opacity: 0; transform: translate(calc(-50% + var(--burst-x)), calc(-50% + var(--burst-y))) scale(1) rotate(var(--burst-spin)); }
+}
+@keyframes dpu-celebration-pop {
+  0% { opacity: 0; transform: scale(.72) translateY(8px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .dpu-celebration-message, .dpu-confetti-piece { animation: none !important; }
+  .dpu-confetti-piece { opacity: 1 !important; transform: translate(calc(-50% + var(--burst-x)), calc(-50% + var(--burst-y))) rotate(var(--burst-spin)); }
+}

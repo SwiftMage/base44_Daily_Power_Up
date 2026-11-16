@@ -447,6 +447,10 @@ function PlayerDialog({ tracks, onClose, onComplete }) {
   const [repeatToken, setRepeatToken] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const [speechFallbackItemId, setSpeechFallbackItemId] = useState(null);
+  const [showCelebration, setShowCelebration] = useState(false);
+  const hasCelebratedRef = useRef(false);
+  const celebrationTimeoutRef = useRef(null);
+  const celebrationAudioRef = useRef(null);
   const audioRef = useRef(null);
   const speechRef = useRef(null);
   const speechItemIdRef = useRef(null);
@@ -505,6 +509,11 @@ function PlayerDialog({ tracks, onClose, onComplete }) {
     };
   }, [playerIsActive]);
 
+  useEffect(() => () => {
+    if (celebrationTimeoutRef.current) window.clearTimeout(celebrationTimeoutRef.current);
+    if (celebrationAudioRef.current) celebrationAudioRef.current.pause();
+  }, []);
+
   function nextTrack() {
     setPracticeMessage("");
     setIsPaused(false);
@@ -512,8 +521,33 @@ function PlayerDialog({ tracks, onClose, onComplete }) {
     if (index < tracks.length - 1) {
       setIndex((current) => current + 1);
       setPhase("playing");
+    } else if (phase === "repeat") {
+      celebrateSession();
     } else {
       setPhase("ready");
+    }
+  }
+
+  function celebrateSession() {
+    if (hasCelebratedRef.current) return;
+    hasCelebratedRef.current = true;
+    setPracticeMessage("You did it! You played every affirmation.");
+    setIsPaused(false);
+    setRepeatRemaining(0);
+    setPhase("ready");
+    setShowCelebration(true);
+
+    if (celebrationTimeoutRef.current) window.clearTimeout(celebrationTimeoutRef.current);
+    celebrationTimeoutRef.current = window.setTimeout(() => {
+      setShowCelebration(false);
+      celebrationTimeoutRef.current = null;
+    }, 2700);
+
+    if (typeof Audio !== "undefined") {
+      const sound = new Audio("/app-audio/celebration.wav");
+      sound.volume = 0.72;
+      celebrationAudioRef.current = sound;
+      void sound.play().catch(() => {});
     }
   }
 
@@ -636,8 +670,7 @@ function PlayerDialog({ tracks, onClose, onComplete }) {
         setIndex((current) => current + 1);
         setPhase("playing");
       } else {
-        setPracticeMessage("Great practice. You can listen again whenever you're ready.");
-        setPhase("ready");
+        celebrateSession();
       }
     }, 100);
     return () => window.clearInterval(timer);
@@ -661,8 +694,90 @@ function PlayerDialog({ tracks, onClose, onComplete }) {
   const Icon = getTopicIcon(item.category);
   const progress = repeatDuration ? (repeatRemaining / repeatDuration) * 100 : 0;
   const playbackLabel = phase === "ready" ? "Listen again" : isPaused ? "Resume" : "Pause";
-  return <div className="dpu-modal-backdrop dpu-player-backdrop" role="presentation" onMouseDown={(event) => event.target === event.currentTarget && onClose()}><section className="dpu-player-modal" role="dialog" aria-modal="true" aria-label="Affirmation player"><button className="dpu-modal-close" onClick={onClose} aria-label="Close player"><X /></button><span className={`dpu-category-icon dpu-player-category category-${slug(item.category)}`}><Icon size={21} /></span><p className="dpu-eyebrow">{item.category} · {index + 1} of {tracks.length}</p><h2>{item.text}</h2><div className="dpu-player-actions"><button className="dpu-player-control" onClick={() => { if (phase === "ready") { setIsPaused(false); setPhase("playing"); } else setIsPaused((current) => !current); }}>{phase === "ready" || isPaused ? <Play size={20} fill="currentColor" /> : <Pause size={20} />}{playbackLabel}</button><button className="dpu-player-control dpu-player-repeat" onClick={repeatAfterMe}><Repeat size={20} />{phase === "repeat" ? "More time" : "Listen & repeat"}</button></div>{phase === "repeat" ? <div className="dpu-repeat-timer"><div className="dpu-repeat-timer-heading"><strong>Your turn to repeat</strong><span aria-live="polite">{Math.ceil(repeatRemaining / 1000)} sec</span></div><div className="dpu-repeat-timer-track" role="progressbar" aria-label="Time to repeat the affirmation" aria-valuemin={0} aria-valuemax={repeatDuration} aria-valuenow={repeatRemaining}><span style={{ width: `${progress}%` }} /></div><p>{practiceMessage || "Say the affirmation out loud before the next one plays."}</p></div> : <div className="dpu-repeat-feedback" aria-live="polite">{practiceMessage || "Listen, then repeat this affirmation out loud."}</div>}<button className="dpu-button dpu-button-add-large dpu-said-it" onClick={completeOnce} disabled={completed.includes(item.id) || (phase === "playing" && !isPaused)}>{completed.includes(item.id) ? <><Check size={19} /> Star earned</> : "I said it!"}</button><div className="dpu-player-footer"><span>{item.audioSrc ? <><Volume2 size={15} /> Recorded audio</> : <><Volume2 size={15} /> Device voice</>}</span>{tracks.length > 1 && <button onClick={nextTrack}>{index < tracks.length - 1 ? "Next affirmation" : "Finish session"} <ArrowLeft className="dpu-arrow-right" size={15} /></button>}</div></section></div>;
+  return (
+    <div className="dpu-modal-backdrop dpu-player-backdrop" role="presentation" onMouseDown={(event) => event.target === event.currentTarget && onClose()}>
+      <section className="dpu-player-modal" role="dialog" aria-modal="true" aria-label="Affirmation player">
+        <button className="dpu-modal-close" onClick={onClose} aria-label="Close player"><X /></button>
+        <span className={`dpu-category-icon dpu-player-category category-${slug(item.category)}`}><Icon size={21} /></span>
+        <p className="dpu-eyebrow">{item.category} · {index + 1} of {tracks.length}</p>
+        <h2>{item.text}</h2>
+        <div className="dpu-player-actions">
+          <button className="dpu-player-control" onClick={() => {
+            if (phase === "ready") {
+              setIsPaused(false);
+              setPhase("playing");
+            } else {
+              setIsPaused((current) => !current);
+            }
+          }}>
+            {phase === "ready" || isPaused ? <Play size={20} fill="currentColor" /> : <Pause size={20} />}
+            {playbackLabel}
+          </button>
+          <button className="dpu-player-control dpu-player-repeat" onClick={repeatAfterMe}>
+            <Repeat size={20} />{phase === "repeat" ? "More time" : "Listen & repeat"}
+          </button>
+        </div>
+        {phase === "repeat" ? (
+          <div className="dpu-repeat-timer">
+            <div className="dpu-repeat-timer-heading"><strong>Your turn to repeat</strong><span aria-live="polite">{Math.ceil(repeatRemaining / 1000)} sec</span></div>
+            <div className="dpu-repeat-timer-track" role="progressbar" aria-label="Time to repeat the affirmation" aria-valuemin={0} aria-valuemax={repeatDuration} aria-valuenow={repeatRemaining}>
+              <span style={{ width: `${progress}%` }} />
+            </div>
+            <p>{practiceMessage || "Say the affirmation out loud before the next one plays."}</p>
+          </div>
+        ) : (
+          <div className="dpu-repeat-feedback" aria-live="polite">{practiceMessage || "Listen, then repeat this affirmation out loud."}</div>
+        )}
+        <button className="dpu-button dpu-button-add-large dpu-said-it" onClick={completeOnce} disabled={completed.includes(item.id) || (phase === "playing" && !isPaused)}>
+          {completed.includes(item.id) ? <><Check size={19} /> Star earned</> : "I said it!"}
+        </button>
+        <div className="dpu-player-footer">
+          <span>{item.audioSrc ? <><Volume2 size={15} /> Recorded audio</> : <><Volume2 size={15} /> Device voice</>}</span>
+          {tracks.length > 1 && <button onClick={nextTrack}>{index < tracks.length - 1 ? "Next affirmation" : "Finish session"} <ArrowLeft className="dpu-arrow-right" size={15} /></button>}
+        </div>
+      </section>
+      {showCelebration && (
+        <div className="dpu-celebration-overlay" role="status" aria-live="polite">
+          <div className="dpu-confetti-burst" aria-hidden="true">
+            {CONFETTI_PIECES.map((piece) => (
+              <span
+                key={piece.id}
+                className={`dpu-confetti-piece dpu-confetti-piece-${piece.shape}`}
+                style={{
+                  "--burst-x": piece.x,
+                  "--burst-y": piece.y,
+                  "--burst-spin": piece.spin,
+                  "--burst-delay": piece.delay,
+                  "--confetti-color": piece.color,
+                }}
+              />
+            ))}
+          </div>
+          <div className="dpu-celebration-message">
+            <span className="dpu-celebration-star" aria-hidden="true">✦</span>
+            <span>All affirmations played!</span>
+            <small>Great practice!</small>
+          </div>
+        </div>
+      )}
+    </div>
+  );
 }
+
+const CELEBRATION_COLORS = ["#37a7ff", "#c43de3", "#ffd938", "#ff566b", "#42dfbd", "#8d70ff"];
+const CONFETTI_PIECES = Array.from({ length: 58 }, (_, index) => {
+  const angle = index * 137.508 * Math.PI / 180;
+  const distance = 128 + ((index * 43) % 176);
+  return {
+    id: index,
+    x: `${Math.cos(angle) * distance}px`,
+    y: `${Math.sin(angle) * distance}px`,
+    spin: `${(index % 2 ? 1 : -1) * (230 + (index * 37) % 500)}deg`,
+    delay: `${(index % 7) * 0.018}s`,
+    color: CELEBRATION_COLORS[index % CELEBRATION_COLORS.length],
+    shape: ["square", "dot", "ribbon"][index % 3],
+  };
+});
 
 function repeatWindowFor() {
   return 5000;
