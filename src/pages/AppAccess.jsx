@@ -445,12 +445,69 @@ function PlayerDialog({ tracks, onClose, onComplete }) {
   const [completed, setCompleted] = useState([]);
   const [repeatRemaining, setRepeatRemaining] = useState(0);
   const [repeatToken, setRepeatToken] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const [speechFallbackItemId, setSpeechFallbackItemId] = useState(null);
   const audioRef = useRef(null);
+  const speechRef = useRef(null);
+  const speechItemIdRef = useRef(null);
+  const phaseRef = useRef(phase);
+  const isPausedRef = useRef(isPaused);
+  phaseRef.current = phase;
+  isPausedRef.current = isPaused;
   const item = tracks[index];
-  const repeatDuration = repeatWindowFor(item?.text || "");
+  const repeatDuration = repeatWindowFor();
+  const playerIsActive = !isPaused && (phase === "playing" || phase === "repeat");
+
+  useEffect(() => {
+    if (!playerIsActive || typeof navigator === "undefined" || !navigator.wakeLock?.request) return undefined;
+
+    let active = true;
+    let requesting = false;
+    let wakeLock = null;
+
+    async function acquireWakeLock() {
+      if (
+        !active ||
+        requesting ||
+        document.visibilityState !== "visible" ||
+        (wakeLock && !wakeLock.released)
+      ) return;
+
+      requesting = true;
+      try {
+        const lock = await navigator.wakeLock.request("screen");
+        if (!active) {
+          await lock.release();
+          return;
+        }
+        wakeLock = lock;
+        lock.addEventListener("release", () => {
+          if (wakeLock === lock) wakeLock = null;
+        }, { once: true });
+      } catch {
+        // Keep playback available if the browser or system does not grant the wake lock.
+      } finally {
+        requesting = false;
+      }
+    }
+
+    function handleVisibilityChange() {
+      if (document.visibilityState === "visible") void acquireWakeLock();
+    }
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+    void acquireWakeLock();
+
+    return () => {
+      active = false;
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+      if (wakeLock && !wakeLock.released) void wakeLock.release().catch(() => {});
+    };
+  }, [playerIsActive]);
 
   function nextTrack() {
     setPracticeMessage("");
+    setIsPaused(false);
     setRepeatRemaining(0);
     if (index < tracks.length - 1) {
       setIndex((current) => current + 1);
@@ -462,6 +519,7 @@ function PlayerDialog({ tracks, onClose, onComplete }) {
 
   function startRepeatWindow() {
     if (!item) return;
+    setIsPaused(false);
     setPracticeMessage("");
     setRepeatRemaining(repeatDuration);
     setRepeatToken((current) => current + 1);
@@ -469,56 +527,105 @@ function PlayerDialog({ tracks, onClose, onComplete }) {
   }
 
   useEffect(() => {
-    if (!item || phase !== "playing") return undefined;
-    let cancelled = false;
-    let utterance = null;
-    const fallbackSpeech = () => {
-      if (cancelled) return;
-      if (!window.speechSynthesis) {
-        setPracticeMessage("Audio isn't available here. Read the affirmation while the timer runs.");
-        setRepeatRemaining(repeatWindowFor(item.text));
-        setRepeatToken((current) => current + 1);
-        setPhase("repeat");
-        return;
-      }
-      window.speechSynthesis.cancel();
-      utterance = new SpeechSynthesisUtterance(item.text);
-      utterance.rate = 0.86;
-      utterance.onend = () => {
-        if (cancelled) return;
-        setPracticeMessage("");
-        setRepeatRemaining(repeatWindowFor(item.text));
-        setRepeatToken((current) => current + 1);
-        setPhase("repeat");
-      };
-      window.speechSynthesis.speak(utterance);
-    };
+    if (!item) return undefined;
+    let audio = null;
+
     if (item.audioSrc) {
-      const audio = new Audio(item.audioSrc);
+      audio = new Audio(item.audioSrc);
       audioRef.current = audio;
       audio.onended = () => {
-        if (cancelled) return;
+        if (phaseRef.current !== "playing" || isPausedRef.current) return;
         setPracticeMessage("");
-        setRepeatRemaining(repeatWindowFor(item.text));
+        setRepeatRemaining(repeatWindowFor());
         setRepeatToken((current) => current + 1);
         setPhase("repeat");
       };
-      audio.onerror = fallbackSpeech;
-      audio.play().catch(fallbackSpeech);
-    } else fallbackSpeech();
+      audio.onerror = () => {
+        if (phaseRef.current === "playing" && !isPausedRef.current) {
+          setSpeechFallbackItemId(item.id);
+        }
+      };
+    } else {
+      audioRef.current = null;
+    }
+
     return () => {
-      cancelled = true;
-      if (audioRef.current) { audioRef.current.pause(); audioRef.current = null; }
+      if (audio) {
+        audio.pause();
+        audio.onended = null;
+        audio.onerror = null;
+        if (audioRef.current === audio) audioRef.current = null;
+      }
       if (window.speechSynthesis) window.speechSynthesis.cancel();
+      speechRef.current = null;
+      speechItemIdRef.current = null;
     };
-    // Playback starts again intentionally whenever the affirmation or player phase changes.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [item?.id, phase]);
+  }, [item?.id]);
 
   useEffect(() => {
-    if (phase !== "repeat" || !item) return undefined;
-    const endsAt = Date.now() + repeatDuration;
-    setRepeatRemaining(repeatDuration);
+    if (!item) return undefined;
+    const audio = audioRef.current;
+    const speech = window.speechSynthesis;
+
+    if (phase === "playing") {
+      if (isPaused) {
+        if (audio) audio.pause();
+        if (speech && speechItemIdRef.current === item.id && speech.speaking) speech.pause();
+        return undefined;
+      }
+
+      if (item.audioSrc && speechFallbackItemId !== item.id && audio) {
+        audio.play().catch(() => setSpeechFallbackItemId(item.id));
+        return undefined;
+      }
+
+      if (audio) audio.pause();
+      if (!speech) {
+        setPracticeMessage("Audio isn't available here. Read the affirmation while the timer runs.");
+        setRepeatRemaining(repeatDuration);
+        setRepeatToken((current) => current + 1);
+        setPhase("repeat");
+        return undefined;
+      }
+
+      if (speechItemIdRef.current === item.id && speechRef.current) {
+        if (speech.paused) {
+          speech.resume();
+          return undefined;
+        }
+        if (speech.speaking) return undefined;
+      }
+
+      const utterance = new SpeechSynthesisUtterance(item.text);
+      utterance.rate = 0.86;
+      utterance.onend = () => {
+        if (phaseRef.current !== "playing" || isPausedRef.current) return;
+        setPracticeMessage("");
+        setRepeatRemaining(repeatDuration);
+        setRepeatToken((current) => current + 1);
+        setPhase("repeat");
+      };
+      speechRef.current = utterance;
+      speechItemIdRef.current = item.id;
+      speech.speak(utterance);
+      return undefined;
+    }
+
+    if (audio) {
+      audio.pause();
+      if (phase === "ready") audio.currentTime = 0;
+    }
+    if (speech && (speech.speaking || speech.paused)) speech.cancel();
+    speechRef.current = null;
+    speechItemIdRef.current = null;
+    return undefined;
+  }, [item?.id, phase, isPaused, speechFallbackItemId, repeatDuration]);
+
+  useEffect(() => {
+    if (phase !== "repeat" || !item || isPaused) return undefined;
+    const durationAtStart = repeatRemaining || repeatDuration;
+    const endsAt = Date.now() + durationAtStart;
+    setRepeatRemaining(durationAtStart);
     const timer = window.setInterval(() => {
       const remaining = Math.max(0, endsAt - Date.now());
       setRepeatRemaining(remaining);
@@ -534,9 +641,9 @@ function PlayerDialog({ tracks, onClose, onComplete }) {
       }
     }, 100);
     return () => window.clearInterval(timer);
-    // The repeat token restarts the countdown when someone asks for more time.
+    // The repeat token restarts the countdown; isPaused preserves the remaining time.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [phase, item?.id, repeatToken]);
+  }, [phase, item?.id, repeatToken, isPaused]);
 
   function completeOnce() {
     if (!completed.includes(item.id)) {
@@ -553,13 +660,12 @@ function PlayerDialog({ tracks, onClose, onComplete }) {
   if (!item) return null;
   const Icon = getTopicIcon(item.category);
   const progress = repeatDuration ? (repeatRemaining / repeatDuration) * 100 : 0;
-  const countdownLabel = phase === "playing" ? "Pause" : phase === "paused" ? "Play affirmation" : "Listen again";
-  return <div className="dpu-modal-backdrop dpu-player-backdrop" role="presentation" onMouseDown={(event) => event.target === event.currentTarget && onClose()}><section className="dpu-player-modal" role="dialog" aria-modal="true" aria-label="Affirmation player"><button className="dpu-modal-close" onClick={onClose} aria-label="Close player"><X /></button><span className={`dpu-category-icon dpu-player-category category-${slug(item.category)}`}><Icon size={21} /></span><p className="dpu-eyebrow">{item.category} · {index + 1} of {tracks.length}</p><h2>{item.text}</h2><div className="dpu-player-actions"><button className="dpu-player-control" onClick={() => setPhase(phase === "playing" ? "paused" : "playing")}>{phase === "playing" ? <Pause size={20} /> : <Play size={20} fill="currentColor" />}{countdownLabel}</button><button className="dpu-player-control dpu-player-repeat" onClick={repeatAfterMe}><Repeat size={20} />{phase === "repeat" ? "More time" : "Listen & repeat"}</button></div>{phase === "repeat" ? <div className="dpu-repeat-timer"><div className="dpu-repeat-timer-heading"><strong>Your turn to repeat</strong><span aria-live="polite">{Math.ceil(repeatRemaining / 1000)} sec</span></div><div className="dpu-repeat-timer-track" role="progressbar" aria-label="Time to repeat the affirmation" aria-valuemin={0} aria-valuemax={repeatDuration} aria-valuenow={repeatRemaining}><span style={{ width: `${progress}%` }} /></div><p>{practiceMessage || "Say the affirmation out loud before the next one plays."}</p></div> : <div className="dpu-repeat-feedback" aria-live="polite">{practiceMessage || "Listen, then repeat this affirmation out loud."}</div>}<button className="dpu-button dpu-button-add-large dpu-said-it" onClick={completeOnce} disabled={completed.includes(item.id) || phase === "playing" || phase === "paused"}>{completed.includes(item.id) ? <><Check size={19} /> Star earned</> : "I said it!"}</button><div className="dpu-player-footer"><span>{item.audioSrc ? <><Volume2 size={15} /> Recorded audio</> : <><Volume2 size={15} /> Device voice</>}</span>{tracks.length > 1 && <button onClick={nextTrack}>{index < tracks.length - 1 ? "Next affirmation" : "Finish session"} <ArrowLeft className="dpu-arrow-right" size={15} /></button>}</div></section></div>;
+  const playbackLabel = phase === "ready" ? "Listen again" : isPaused ? "Resume" : "Pause";
+  return <div className="dpu-modal-backdrop dpu-player-backdrop" role="presentation" onMouseDown={(event) => event.target === event.currentTarget && onClose()}><section className="dpu-player-modal" role="dialog" aria-modal="true" aria-label="Affirmation player"><button className="dpu-modal-close" onClick={onClose} aria-label="Close player"><X /></button><span className={`dpu-category-icon dpu-player-category category-${slug(item.category)}`}><Icon size={21} /></span><p className="dpu-eyebrow">{item.category} · {index + 1} of {tracks.length}</p><h2>{item.text}</h2><div className="dpu-player-actions"><button className="dpu-player-control" onClick={() => { if (phase === "ready") { setIsPaused(false); setPhase("playing"); } else setIsPaused((current) => !current); }}>{phase === "ready" || isPaused ? <Play size={20} fill="currentColor" /> : <Pause size={20} />}{playbackLabel}</button><button className="dpu-player-control dpu-player-repeat" onClick={repeatAfterMe}><Repeat size={20} />{phase === "repeat" ? "More time" : "Listen & repeat"}</button></div>{phase === "repeat" ? <div className="dpu-repeat-timer"><div className="dpu-repeat-timer-heading"><strong>Your turn to repeat</strong><span aria-live="polite">{Math.ceil(repeatRemaining / 1000)} sec</span></div><div className="dpu-repeat-timer-track" role="progressbar" aria-label="Time to repeat the affirmation" aria-valuemin={0} aria-valuemax={repeatDuration} aria-valuenow={repeatRemaining}><span style={{ width: `${progress}%` }} /></div><p>{practiceMessage || "Say the affirmation out loud before the next one plays."}</p></div> : <div className="dpu-repeat-feedback" aria-live="polite">{practiceMessage || "Listen, then repeat this affirmation out loud."}</div>}<button className="dpu-button dpu-button-add-large dpu-said-it" onClick={completeOnce} disabled={completed.includes(item.id) || (phase === "playing" && !isPaused)}>{completed.includes(item.id) ? <><Check size={19} /> Star earned</> : "I said it!"}</button><div className="dpu-player-footer"><span>{item.audioSrc ? <><Volume2 size={15} /> Recorded audio</> : <><Volume2 size={15} /> Device voice</>}</span>{tracks.length > 1 && <button onClick={nextTrack}>{index < tracks.length - 1 ? "Next affirmation" : "Finish session"} <ArrowLeft className="dpu-arrow-right" size={15} /></button>}</div></section></div>;
 }
 
-function repeatWindowFor(text) {
-  const wordCount = String(text).trim().split(/\s+/).filter(Boolean).length;
-  return Math.min(12000, Math.max(6500, wordCount * 450));
+function repeatWindowFor() {
+  return 5000;
 }
 
 function slug(value) { return value.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, ""); }
