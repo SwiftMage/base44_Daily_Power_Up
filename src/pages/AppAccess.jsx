@@ -263,13 +263,11 @@ function AppWorkspace({ onSignOut, directAccess }) {
     updateProfile({ playlists: (profile.playlists || []).filter((item) => item.id !== id) });
   }
 
-  const navItems = [
-    ...(!profile?.isTeacherMode ? [
-      { id: "home", label: "My list", icon: Heart },
-      { id: "browse", label: "Browse all", icon: Search },
-      { id: "guide", label: "Guided picks", icon: Sparkles },
-      { id: "playlists", label: "Playlists", icon: ListMusic },
-    ] : []),
+  const navItems = profile?.isTeacherMode ? [] : [
+    { id: "home", label: "My list", icon: Heart },
+    { id: "browse", label: "Browse all", icon: Search },
+    { id: "guide", label: "Guided picks", icon: Sparkles },
+    { id: "playlists", label: "Playlists", icon: ListMusic },
     { id: "settings", label: "Settings", icon: Settings },
   ];
 
@@ -296,9 +294,9 @@ function AppWorkspace({ onSignOut, directAccess }) {
             </div>
             <small className="dpu-shared-profile-note">One profile on this browser</small>
           </div>
-          <nav className="dpu-side-nav" aria-label="App sections">
+          {navItems.length > 0 && <nav className="dpu-side-nav" aria-label="App sections">
             {navItems.map(({ id, label, icon: Icon }) => <button key={id} className={`dpu-nav-item ${screen === id ? "is-active" : ""}`} onClick={() => setScreen(id)}><Icon size={18} />{label}</button>)}
-          </nav>
+          </nav>}
           {profile && <div className="dpu-sidebar-progress"><div className="dpu-progress-top"><Star size={17} fill="currentColor" /><strong>{profile.stars || 0}</strong><span>stars</span></div>{!profile.isTeacherMode && <div className="dpu-progress-bar"><span style={{ width: `${Math.min(100, ((profile.stars || 0) % 20) * 5)}%` }} /></div>}<small>{profile.streak || 0} day streak</small></div>}
           <div className="dpu-local-note">Saved on this browser<br />and this device</div>
         </aside>
@@ -309,13 +307,13 @@ function AppWorkspace({ onSignOut, directAccess }) {
               {screen === "browse" && !profile.isTeacherMode && <BrowseScreen allItems={allItems} selectedIds={chosenIds} isTeacherMode={profile.isTeacherMode} category={category} setCategory={setCategory} query={query} setQuery={setQuery} onToggle={toggleAffirmation} onPlay={(item) => startPlayer([item])} />}
               {screen === "guide" && !profile.isTeacherMode && <GuidedScreen topics={guideTopics} setTopics={setGuideTopics} picks={guidePicks} chosen={guideChosen} setChosen={setGuideChosen} offset={guideOffset} onBuild={() => showGuidedPicks(0)} onRefresh={() => showGuidedPicks(guideOffset + 4)} onChangeTopics={() => setGuidePicks([])} onAdd={() => addMany(guideChosen)} onPlay={(item) => startPlayer([item])} />}
               {screen === "playlists" && !profile.isTeacherMode && <PlaylistsScreen profile={profile} playlistName={playlistName} setPlaylistName={setPlaylistName} onCreate={createPlaylist} onRemove={removePlaylist} onPlay={(ids) => startPlayer(ids.map((id) => allItems.find((item) => item.id === id)).filter(Boolean))} />}
-              {screen === "settings" && <SettingsScreen profile={profile} updateProfile={updateProfile} />}
+              {screen === "settings" && !profile.isTeacherMode && <SettingsScreen profile={profile} updateProfile={updateProfile} />}
           </>
         </main>
       </div>
-      <nav className="dpu-mobile-nav" aria-label="App sections" style={{ gridTemplateColumns: `repeat(${navItems.length}, minmax(0, 1fr))` }}>
+      {navItems.length > 0 && <nav className="dpu-mobile-nav" aria-label="App sections" style={{ gridTemplateColumns: `repeat(${navItems.length}, minmax(0, 1fr))` }}>
         {navItems.map(({ id, label, icon: Icon }) => <button key={id} className={screen === id ? "is-active" : ""} onClick={() => setScreen(id)}><Icon size={19} /><span>{label}</span></button>)}
-      </nav>
+      </nav>}
       {customDialog && profile && !profile.isTeacherMode && <CustomAffirmationDialog onClose={() => setCustomDialog(false)} onSave={(item) => { updateProfile({ customAffirmations: [...customItems, item], selectedIds: [...new Set([...chosenIds, item.id])] }); setCustomDialog(false); setToast("Your affirmation was added."); }} />}
       {playerTracks && <PlayerDialog tracks={playerTracks} onClose={() => setPlayerTracks(null)} onComplete={markPractice} />}
       {toast && <div className="dpu-toast" role="status"><Check size={17} />{toast}</div>}
