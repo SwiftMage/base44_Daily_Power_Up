@@ -450,8 +450,8 @@ function PlayerDialog({ tracks, onClose, onComplete }) {
   const [showCelebration, setShowCelebration] = useState(false);
   const hasCelebratedRef = useRef(false);
   const celebrationTimeoutRef = useRef(null);
-  const celebrationAudioRef = useRef(null);
   const audioRef = useRef(null);
+  const isCelebrationAudioRef = useRef(false);
   const speechRef = useRef(null);
   const speechItemIdRef = useRef(null);
   const phaseRef = useRef(phase);
@@ -461,6 +461,21 @@ function PlayerDialog({ tracks, onClose, onComplete }) {
   const item = tracks[index];
   const repeatDuration = repeatWindowFor();
   const playerIsActive = !isPaused && (phase === "playing" || phase === "repeat");
+
+  useEffect(() => {
+    const audio = new Audio();
+    audio.preload = "auto";
+    audioRef.current = audio;
+
+    return () => {
+      audio.pause();
+      audio.onended = null;
+      audio.onerror = null;
+      audio.removeAttribute("src");
+      audio.load();
+      if (audioRef.current === audio) audioRef.current = null;
+    };
+  }, []);
 
   useEffect(() => {
     if (!playerIsActive || typeof navigator === "undefined" || !navigator.wakeLock?.request) return undefined;
@@ -511,7 +526,6 @@ function PlayerDialog({ tracks, onClose, onComplete }) {
 
   useEffect(() => () => {
     if (celebrationTimeoutRef.current) window.clearTimeout(celebrationTimeoutRef.current);
-    if (celebrationAudioRef.current) celebrationAudioRef.current.pause();
   }, []);
 
   function nextTrack() {
@@ -543,11 +557,25 @@ function PlayerDialog({ tracks, onClose, onComplete }) {
       celebrationTimeoutRef.current = null;
     }, 2700);
 
-    if (typeof Audio !== "undefined") {
-      const sound = new Audio("/app-audio/celebration.wav");
+    const sound = audioRef.current;
+    if (sound) {
+      sound.pause();
+      sound.onended = () => {
+        isCelebrationAudioRef.current = false;
+        sound.volume = 1;
+      };
+      sound.onerror = () => {
+        isCelebrationAudioRef.current = false;
+        sound.volume = 1;
+      };
+      sound.src = "/app-audio/celebration.wav";
       sound.volume = 0.72;
-      celebrationAudioRef.current = sound;
-      void sound.play().catch(() => {});
+      sound.load();
+      isCelebrationAudioRef.current = true;
+      void sound.play().catch(() => {
+        isCelebrationAudioRef.current = false;
+        sound.volume = 1;
+      });
     }
   }
 
@@ -560,40 +588,10 @@ function PlayerDialog({ tracks, onClose, onComplete }) {
     setPhase("repeat");
   }
 
-  useEffect(() => {
-    if (!item) return undefined;
-    let audio = null;
-
-    if (item.audioSrc) {
-      audio = new Audio(item.audioSrc);
-      audioRef.current = audio;
-      audio.onended = () => {
-        if (phaseRef.current !== "playing" || isPausedRef.current) return;
-        setPracticeMessage("");
-        setRepeatRemaining(repeatWindowFor());
-        setRepeatToken((current) => current + 1);
-        setPhase("repeat");
-      };
-      audio.onerror = () => {
-        if (phaseRef.current === "playing" && !isPausedRef.current) {
-          setSpeechFallbackItemId(item.id);
-        }
-      };
-    } else {
-      audioRef.current = null;
-    }
-
-    return () => {
-      if (audio) {
-        audio.pause();
-        audio.onended = null;
-        audio.onerror = null;
-        if (audioRef.current === audio) audioRef.current = null;
-      }
-      if (window.speechSynthesis) window.speechSynthesis.cancel();
-      speechRef.current = null;
-      speechItemIdRef.current = null;
-    };
+  useEffect(() => () => {
+    if (window.speechSynthesis) window.speechSynthesis.cancel();
+    speechRef.current = null;
+    speechItemIdRef.current = null;
   }, [item?.id]);
 
   useEffect(() => {
@@ -609,11 +607,36 @@ function PlayerDialog({ tracks, onClose, onComplete }) {
       }
 
       if (item.audioSrc && speechFallbackItemId !== item.id && audio) {
+        if (audio.getAttribute("src") !== item.audioSrc) {
+          audio.pause();
+          audio.onended = null;
+          audio.onerror = null;
+          audio.src = item.audioSrc;
+          audio.load();
+          isCelebrationAudioRef.current = false;
+        }
+        audio.volume = 1;
+        audio.onended = () => {
+          if (phaseRef.current !== "playing" || isPausedRef.current) return;
+          setPracticeMessage("");
+          setRepeatRemaining(repeatWindowFor());
+          setRepeatToken((current) => current + 1);
+          setPhase("repeat");
+        };
+        audio.onerror = () => {
+          if (phaseRef.current === "playing" && !isPausedRef.current) {
+            setSpeechFallbackItemId(item.id);
+          }
+        };
         audio.play().catch(() => setSpeechFallbackItemId(item.id));
         return undefined;
       }
 
-      if (audio) audio.pause();
+      if (audio) {
+        audio.pause();
+        audio.onended = null;
+        audio.onerror = null;
+      }
       if (!speech) {
         setPracticeMessage("Audio isn't available here. Read the affirmation while the timer runs.");
         setRepeatRemaining(repeatDuration);
@@ -645,7 +668,7 @@ function PlayerDialog({ tracks, onClose, onComplete }) {
       return undefined;
     }
 
-    if (audio) {
+    if (audio && !isCelebrationAudioRef.current) {
       audio.pause();
       if (phase === "ready") audio.currentTime = 0;
     }
