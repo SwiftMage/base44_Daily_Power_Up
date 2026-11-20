@@ -46,7 +46,7 @@ export default function Privacy() {
       {/* Content */}
       <section className="py-16 px-6 relative">
         <div className="max-w-3xl mx-auto relative z-10 space-y-10">
-          <p className="text-sm text-gray-500">Last Updated: November 10, 2026</p>
+          <p className="text-sm text-gray-500">Last Updated: November 20, 2026</p>
 
           <div>
             <h2 className="text-2xl font-bold text-gray-900 mb-4">Information We Collect</h2>
@@ -66,6 +66,9 @@ export default function Privacy() {
             <p className="text-gray-700 text-lg leading-relaxed mb-4">
               We use email addresses submitted through free-resource forms to manage those requests. The shared password allows a group to sign in to the teacher profile. Locally saved app data powers the web app features in each browser. Listen and repeat is self-guided in this beta; the web app does not request microphone access or record speech. We do not use the web app's local profile or progress data for advertising or analytics.
             </p>
+            <p className="text-gray-700 text-lg leading-relaxed">
+              On public marketing pages, a Google Ads tag loads to support advertising measurement. Google may process technical browser or device information and ad-click identifiers, and may use cookies or similar storage. The tag is not loaded within the child-facing web app or the iOS app. The base tag by itself does not confirm that the app was downloaded or installed.
+            </p>
           </div>
 
           <div>
@@ -81,7 +84,8 @@ export default function Privacy() {
               The website uses Supabase to manage free-resource email signups and Vercel for hosting and the web app API. You can review their privacy notices at{" "}
               <a href="https://supabase.com/privacy" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">Supabase</a>,{" "}
               <a href="https://vercel.com/legal/privacy-notice" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">Vercel</a>. The iOS app uses RevenueCat to manage in-app subscriptions; its privacy practices are described at{" "}
-              <a href="https://www.revenuecat.com/privacy/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">RevenueCat</a>.
+              <a href="https://www.revenuecat.com/privacy/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">RevenueCat</a>. Public-page ad measurement is provided by{" "}
+              <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">Google</a>.
             </p>
           </div>
 

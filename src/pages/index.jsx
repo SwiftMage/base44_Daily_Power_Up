@@ -6,6 +6,7 @@ import FAQ from "./FAQ";
 import Blog from "./Blog";
 import BlogPost from "./BlogPost";
 import Privacy from "./Privacy";
+import GoogleAdsTag from "../components/GoogleAdsTag";
 
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 import { lazy, Suspense, useEffect } from 'react';
@@ -48,6 +49,8 @@ function PagesContent() {
     const currentPage = _getCurrentPage(location.pathname);
     
     return (
+        <>
+        <GoogleAdsTag />
         <Layout currentPageName={currentPage}>
             <ScrollToTop />
             <Routes>
@@ -71,6 +74,7 @@ function PagesContent() {
 
             </Routes>
         </Layout>
+        </>
     );
 }
 
