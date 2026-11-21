@@ -4,5 +4,13 @@
       "source": "/(.*)",
       "destination": "/index.html"
     }
+  ],
+  "cleanUrls": true,
+  "redirects": [
+    {
+      "source": "/blog/bedtime-affirmations-for-kids",
+      "destination": "/blog/bedtime-affirmations-calmer-nights-confident-kids",
+      "permanent": true
+    }
   ]
 }

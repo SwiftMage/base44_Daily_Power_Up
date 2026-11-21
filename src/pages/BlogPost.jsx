@@ -843,7 +843,7 @@ export default function BlogPost() {
   const post = blogPosts[slug];
 
   if (!post) {
-    return <Navigate to="/blog" replace />;
+    return <Navigate to="/Blog" replace />;
   }
 
   const articleSchema = {
@@ -861,14 +861,14 @@ export default function BlogPost() {
       "name": "Daily Power Up",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://dailyaffirmationspowerup.com/images/screenshot-1.png"
+        "url": "https://www.dailyaffirmationspowerup.com/images/screenshot-1.png"
       }
     },
     "datePublished": "2025-01-01",
     "dateModified": "2025-01-01",
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": `https://dailyaffirmationspowerup.com/blog/${slug}`
+      "@id": `https://www.dailyaffirmationspowerup.com/blog/${slug}`
     },
     "keywords": post.tags.join(", ")
   };

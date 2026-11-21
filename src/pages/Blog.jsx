@@ -40,6 +40,15 @@ const blogPosts = [
     tags: ["Mindset", "Science backed habits"],
     image: "https://images.unsplash.com/photo-1708119651120-f48a57a0437d?q=80&w=776&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     date: "2025"
+  },
+  {
+    slug: "bedtime-affirmations-calmer-nights-confident-kids",
+    title: "Bedtime Affirmations: How to Create Calmer Nights and More Confident Kids",
+    excerpt: "Many parents find that when the day quiets down and the lights go out, kids' worries have a way of growing louder. A simple, consistent bedtime affirmation practice can create a safer, calmer night—and it's one of the most powerful gifts you can offer your child.",
+    readTime: "8 min read",
+    tags: ["Bedtime", "Anxiety Relief"],
+    image: "https://images.pexels.com/photos/5895052/pexels-photo-5895052.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    date: "2025"
   }
 ];
 

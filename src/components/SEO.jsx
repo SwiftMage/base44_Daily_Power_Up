@@ -1,7 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 
 const SITE_NAME = 'Daily Power Up';
-const BASE_URL = 'https://dailyaffirmationspowerup.com';
+const BASE_URL = 'https://www.dailyaffirmationspowerup.com';
 const DEFAULT_IMAGE = `${BASE_URL}/images/screenshot-1.png`;
 const TWITTER_HANDLE = '@DailyPowerUpApp';
 
@@ -14,7 +14,9 @@ export default function SEO({
   article = null,
   structuredData = null
 }) {
-  const fullTitle = title ? `${title} | ${SITE_NAME}` : `${SITE_NAME} - Positive Affirmations App for Kids`;
+  const fullTitle = title
+    ? (title.toLowerCase().includes(SITE_NAME.toLowerCase()) ? title : title + ' | ' + SITE_NAME)
+    : SITE_NAME + ' - Positive Affirmations App for Kids';
   const fullUrl = url.startsWith('http') ? url : `${BASE_URL}${url}`;
   const fullImage = image.startsWith('http') ? image : `${BASE_URL}${image}`;
 
