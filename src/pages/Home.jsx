@@ -15,7 +15,7 @@ const organizationSchema = {
   "@type": "Organization",
   "name": "Daily Power Up",
   "url": "https://www.dailyaffirmationspowerup.com",
-  "logo": "https://www.dailyaffirmationspowerup.com/images/screenshot-1.png",
+  "logo": "https://www.dailyaffirmationspowerup.com/images/daily-power-up-app-logo.png",
   "sameAs": [
     "https://twitter.com/DailyPowerUpApp"
   ],

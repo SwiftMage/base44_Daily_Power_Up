@@ -7,7 +7,7 @@ const DIST = path.join(ROOT, "dist");
 const TEMPLATE_PATH = path.join(DIST, "index.html");
 const BASE_URL = "https://www.dailyaffirmationspowerup.com";
 const SITE_NAME = "Daily Power Up";
-const DEFAULT_IMAGE = BASE_URL + "/images/screenshot-1.png";
+const DEFAULT_IMAGE = BASE_URL + "/images/daily-power-up-social-preview.png";
 
 const pages = [
   {
@@ -117,12 +117,12 @@ function renderRoute(template, page) {
   html = setMeta(html, "property", "og:description", page.description);
   html = setMeta(html, "property", "og:image", image);
   html = setMeta(html, "property", "og:site_name", SITE_NAME);
-  html = setMeta(html, "property", "twitter:card", "summary_large_image");
-  html = setMeta(html, "property", "twitter:url", canonicalUrl);
-  html = setMeta(html, "property", "twitter:title", title);
-  html = setMeta(html, "property", "twitter:description", page.description);
-  html = setMeta(html, "property", "twitter:image", image);
-  html = setMeta(html, "property", "twitter:site", "@DailyPowerUpApp");
+  html = setMeta(html, "name", "twitter:card", "summary_large_image");
+  html = setMeta(html, "name", "twitter:url", canonicalUrl);
+  html = setMeta(html, "name", "twitter:title", title);
+  html = setMeta(html, "name", "twitter:description", page.description);
+  html = setMeta(html, "name", "twitter:image", image);
+  html = setMeta(html, "name", "twitter:site", "@DailyPowerUpApp");
   return html;
 }
 

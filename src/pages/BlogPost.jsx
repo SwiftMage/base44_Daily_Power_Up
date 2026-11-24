@@ -861,7 +861,7 @@ export default function BlogPost() {
       "name": "Daily Power Up",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://www.dailyaffirmationspowerup.com/images/screenshot-1.png"
+        "url": "https://www.dailyaffirmationspowerup.com/images/daily-power-up-app-logo.png"
       }
     },
     "datePublished": "2025-01-01",
